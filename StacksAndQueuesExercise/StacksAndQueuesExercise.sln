@@ -13,15 +13,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FastFood", "FastFood\FastFo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FashionBoutique", "FashionBoutique\FashionBoutique.csproj", "{3F7B65BE-5574-403A-B256-DDCDC3ABF114}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SongsQueue", "SongsQueue\SongsQueue.csproj", "{4363FD72-993F-4EFB-A45F-41BFBBC7CDD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SongsQueue", "SongsQueue\SongsQueue.csproj", "{4363FD72-993F-4EFB-A45F-41BFBBC7CDD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckTour", "TruckTour\TruckTour.csproj", "{F61D7F81-5320-4D28-B822-8825BBAF66B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TruckTour", "TruckTour\TruckTour.csproj", "{F61D7F81-5320-4D28-B822-8825BBAF66B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedParenthesis", "BalancedParenthesis\BalancedParenthesis.csproj", "{4416BF3C-5052-4963-824C-A97B89AF9092}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BalancedParenthesis", "BalancedParenthesis\BalancedParenthesis.csproj", "{4416BF3C-5052-4963-824C-A97B89AF9092}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleTextEditor", "SimpleTextEditor\SimpleTextEditor.csproj", "{0404A26E-4C3E-420A-94BE-CC7B17A1CD94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleTextEditor", "SimpleTextEditor\SimpleTextEditor.csproj", "{0404A26E-4C3E-420A-94BE-CC7B17A1CD94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crossroads", "Crossroads\Crossroads.csproj", "{8F4B3C76-8BED-47D7-874A-ECA62D3D95B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crossroads", "Crossroads\Crossroads.csproj", "{8F4B3C76-8BED-47D7-874A-ECA62D3D95B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeyRevolver", "KeyRevolver\KeyRevolver.csproj", "{114D0B9B-F7E2-4A5E-9DED-2A1A2F5BD9E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{8F4B3C76-8BED-47D7-874A-ECA62D3D95B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F4B3C76-8BED-47D7-874A-ECA62D3D95B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F4B3C76-8BED-47D7-874A-ECA62D3D95B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{114D0B9B-F7E2-4A5E-9DED-2A1A2F5BD9E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{114D0B9B-F7E2-4A5E-9DED-2A1A2F5BD9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{114D0B9B-F7E2-4A5E-9DED-2A1A2F5BD9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{114D0B9B-F7E2-4A5E-9DED-2A1A2F5BD9E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
