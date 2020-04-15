@@ -23,21 +23,32 @@ namespace Crossroads
                 if (input == "green")
                 {
                     int green = greenLength;
-                    while (green >= 0 && cars.Count > 0)
+                    var temp = new Queue<string>();
+                    
+                    while (green > 0 && cars.Count != 0)
                     {
                         string car = cars.Dequeue();
+                        temp.Enqueue(car);
                         green -= car.Length;
-
+                        
                         if(green < 0)
+                            break;
+
+                        temp.Dequeue();
+                        passes++;
+                    }
+                    while (window >= 0 && temp.Count != 0)
+                    {
+                        string car = temp.Dequeue();
+                        window += green;
+                        if (window < 0)
                         {
-                            window += green;
-                            if (window < 0)
-                            {
-                                Console.WriteLine("A crash happened!");
-                                Console.WriteLine($"{car} was hit at {car[car.Length + window]}.");
-                                return;
-                            }
+                            Console.WriteLine("A crash happened!");
+                            Console.WriteLine($"{car} was hit at {car[car.Length + window]}.");
+                            return;
                         }
+
+                        window -= car.Length;
                         passes++;
                     }
                 }
