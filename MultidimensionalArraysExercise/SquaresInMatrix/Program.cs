@@ -8,7 +8,7 @@ namespace SquaresInMatrix
     {
         static void Main(string[] args)
         {
-            var n = IntParce();
+            var n = IntParce(' ');
             var matrix = Matrix(n[0], n[1]);
 
             int counter = ContainsChar(matrix);
