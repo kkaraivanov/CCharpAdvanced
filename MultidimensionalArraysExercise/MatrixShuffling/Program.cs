@@ -78,7 +78,7 @@ namespace MatrixShuffling
             matrix[row1, col1] = ferstValue;
         }
 
-        static bool CommandIsValid(params string[] command)
+        static bool CommandIsValid(string[] command)
             => command.Contains("swap") &&
                command.Length <= 5;
 
