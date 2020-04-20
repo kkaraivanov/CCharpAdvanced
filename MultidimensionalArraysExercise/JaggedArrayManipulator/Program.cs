@@ -10,12 +10,16 @@ namespace JaggedArrayManipulator
         static void Main(string[] args)
         {
             int rows = int.Parse(Console.ReadLine());
-            // this is Ok with double type
-            var arr = new double[rows][];
+            var arr = new double[rows][];   // for judge double type is Ok
 
-            CreateJaggedArr(arr, rows);
-            AnalyzingJaggedArr(arr);
+            CreateJaggedArr(arr, rows);     // create jagged array
+            AnalyzingJaggedArr(arr);        // analizing jagged array
 
+            ManipulateJaggedArr(arr);       // complete task in this method
+        }
+
+        static void ManipulateJaggedArr(double[][] arr)
+        {
             while (true)
             {
                 var commands = Commands();
