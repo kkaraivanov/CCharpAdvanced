@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SnakeMoves
@@ -13,9 +14,9 @@ namespace SnakeMoves
                 .ToArray();
             int row = nAndM[0];
             int col = nAndM[1];
-            var snake = Console.ReadLine().ToCharArray();
+            var snake = Console.ReadLine();
             char[,] matrix = new char[row, col];
-            Matrix(matrix, row, col, snake);
+            CreateMatrix(matrix, row, col, snake);
 
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -28,50 +29,37 @@ namespace SnakeMoves
             }
         }
 
-        static void Matrix(char[,] matrix, int row, int col, char[] arr)
+        static void CreateMatrix(char[,] matrix, int row, int col, string arr)
         {
-            int temp = 0;
+            int index = 0;
             for (int i = 0; i < row; i++)
             {
                 if (i % 2 == 0)
                 {
                     for (int j = 0; j < col; j++)
                     {
-                        if (IndexIsValid(arr, temp))
-                        {
-                            matrix[i, j] = arr[temp];
-                        }
-                        else
-                        {
-                            temp = 0;
-                            matrix[i, j] = arr[temp];
-                        }
-                        temp++;
-                    }
+                        if(!IndexIsValid(arr, index))
+                            index = 0;
 
-                    temp -= 1;
+                        matrix[i, j] = arr[index];
+                        index++;
+                    }
                 }
                 else
                 {
-                    temp -= 1;
-                    for (int j = 0; j < col; j++)
+                    for (int j = col - 1; j >= 0; j--)
                     {
-                        if (IndexIsValid(arr, temp))
-                        {
-                            matrix[i, j] = arr[temp];
-                        }
-                        else
-                        {
-                            temp = arr.Length - 1;
-                            matrix[i, j] = arr[temp];
-                        }
-                        temp--;
+                        if (!IndexIsValid(arr, index))
+                            index = 0;
+
+                        matrix[i, j] = arr[index];
+                        index++;
                     }
                 }
             }
         }
 
-        static bool IndexIsValid(char[] arr, int index)
+        static bool IndexIsValid(string arr, int index)
             => index >= 0 && arr.Length > index;
     }
 }

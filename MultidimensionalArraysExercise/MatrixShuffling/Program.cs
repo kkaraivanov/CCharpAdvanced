@@ -9,9 +9,9 @@ namespace MatrixShuffling
         static void Main(string[] args)
         {
             var input = Input(' ');
-            var rows = input[0];
-            var cols = input[1];
-            var matrix = new int[rows, cols];
+            var rows = int.Parse(input[0]);
+            var cols = int.Parse(input[1]);
+            var matrix = new String[rows, cols];
 
             CreateMatrix(matrix, rows, cols);
             while (true)
@@ -40,7 +40,7 @@ namespace MatrixShuffling
             }
         }
 
-        static void PrintMatrix(int[,] matrix)
+        static void PrintMatrix(string[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -53,7 +53,7 @@ namespace MatrixShuffling
             }
         }
 
-        static void CreateMatrix(int[,] matrix, int row, int col)
+        static void CreateMatrix(string[,] matrix, int row, int col)
         {
             for (int i = 0; i < row; i++)
             {
@@ -65,7 +65,7 @@ namespace MatrixShuffling
             }
         }
 
-        static void Swap(int[,] matrix, int[] arr)
+        static void Swap(string[,] matrix, int[] arr)
         {
             var row = arr[0];
             var col = arr[1];
@@ -82,7 +82,7 @@ namespace MatrixShuffling
             => command.Contains("swap") &&
                command.Length <= 5;
 
-        static bool CommandIsValid(int[,] matrix, int[] command)
+        static bool CommandIsValid(string[,] matrix, int[] command)
             => (command[0] >= 0 && matrix.GetLength(0) >= command[0]) &&
                (command[1] >= 0 && matrix.GetLength(1) >= command[1]) &&
                (command[2] >= 0 && matrix.GetLength(0) >= command[2]) &&
@@ -93,10 +93,9 @@ namespace MatrixShuffling
                 .Split(separator, StringSplitOptions.RemoveEmptyEntries)
                 .ToArray();
         
-        static int[] Input(params char[] separator)
+        static string[] Input(params char[] separator)
             => Console.ReadLine()
                 .Split(separator, StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
                 .ToArray();
     }
 }
