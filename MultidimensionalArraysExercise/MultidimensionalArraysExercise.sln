@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightGame", "KnightGame\Kn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bombs", "Bombs\Bombs.csproj", "{C154E8B0-4072-4448-B5C6-B9791CEB5EA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Miner", "Miner\Miner.csproj", "{172A3158-9E35-41FD-863D-D480AF348B70}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{C154E8B0-4072-4448-B5C6-B9791CEB5EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C154E8B0-4072-4448-B5C6-B9791CEB5EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C154E8B0-4072-4448-B5C6-B9791CEB5EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{172A3158-9E35-41FD-863D-D480AF348B70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{172A3158-9E35-41FD-863D-D480AF348B70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{172A3158-9E35-41FD-863D-D480AF348B70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{172A3158-9E35-41FD-863D-D480AF348B70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
