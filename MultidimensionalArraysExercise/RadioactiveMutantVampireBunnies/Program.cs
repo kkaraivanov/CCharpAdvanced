@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RadioactiveMutantVampireBunnies
@@ -22,101 +23,58 @@ namespace RadioactiveMutantVampireBunnies
             for (int i = 0; i < commands.Length; i++)
             {
                 var actions = commands[i];
-                Action(matrix, actions);
+                switch (actions)
+                {
+                    case 'U':
+                        LeavCell(matrix, startRow, startCol);
+
+                        if (!CellIsInTheMatrix(matrix, startRow - 1, startCol))
+                            GameOver(matrix, startRow, startCol, false);
+                        else
+                            MovePlayer(matrix, startRow - 1, startCol);
+
+                        ReproductionBunny(matrix);
+                        break;
+                    case 'D':
+                        LeavCell(matrix, startRow, startCol);
+
+                        if (!CellIsInTheMatrix(matrix, startRow + 1, startCol))
+                            GameOver(matrix, startRow, startCol, false);
+                        else
+                            MovePlayer(matrix, startRow + 1, startCol);
+
+                        ReproductionBunny(matrix);
+                        break;
+                    case 'L':
+                        LeavCell(matrix, startRow, startCol);
+
+                        if (!CellIsInTheMatrix(matrix, startRow, startCol - 1))
+                            GameOver(matrix, startRow, startCol, false);
+                        else
+                            MovePlayer(matrix, startRow, startCol - 1);
+
+                        ReproductionBunny(matrix);
+                        break;
+                    case 'R':
+                        LeavCell(matrix, startRow, startCol);
+
+                        if (!CellIsInTheMatrix(matrix, startRow, startCol + 1))
+                            GameOver(matrix, startRow, startCol, false);
+                        else
+                            MovePlayer(matrix, startRow, startCol + 1);
+
+                        ReproductionBunny(matrix);
+                        break;
+                }
+
                 if (gameOver)
                 {
-                    break;
+                    return;
                 }
             }
-            
-            
         }
 
-        static void Action(char[,] matrix, char actions)
-        {
-            
-            switch (actions)
-            {
-                case 'U':
-                    if (CellIsInTheMatrix(matrix, startRow - 1, startCol))
-                    {
-                        if (CellWithBunny(matrix, startRow - 1, startCol))
-                        {
-                            GameOver(matrix, startRow - 1, startCol);
-                            return;
-                        }
-                        else
-                        {
-                            MovePlayer(startRow - 1, startCol);
-                            ReproductionBunny(matrix);
-                        }
-                    }
-                    else
-                    {
-                        GameOver(matrix, startRow - 1, startCol, false);
-                    }
-                    break;
-                case 'D':
-                    if (CellIsInTheMatrix(matrix, startRow + 1, startCol))
-                    {
-                        if (CellWithBunny(matrix, startRow + 1, startCol))
-                        {
-                            GameOver(matrix, startRow + 1, startCol);
-                            return;
-                        }
-                        else
-                        {
-                            MovePlayer(startRow + 1, startCol);
-                            ReproductionBunny(matrix);
-                        }
-                    }
-                    else
-                    {
-                        GameOver(matrix, startRow - 1, startCol, false);
-                    }
-                    break;
-                case 'L':
-                    if (CellIsInTheMatrix(matrix, startRow , startCol - 1))
-                    {
-                        if (CellWithBunny(matrix, startRow, startCol - 1))
-                        {
-                            GameOver(matrix, startRow, startCol - 1);
-                            return;
-                        }
-                        else
-                        {
-                            MovePlayer(startRow, startCol - 1);
-                            ReproductionBunny(matrix);
-                        }
-                    }
-                    else
-                    {
-                        GameOver(matrix, startRow, startCol - 1, false);
-                    }
-                    break;
-                case 'R':
-                    if (CellIsInTheMatrix(matrix, startRow, startCol + 1))
-                    {
-                        if (CellWithBunny(matrix, startRow, startCol + 1))
-                        {
-                            GameOver(matrix, startRow, startCol + 1);
-                            return;
-                        }
-                        else
-                        {
-                            MovePlayer(startRow, startCol + 1);
-                            ReproductionBunny(matrix);
-                        }
-                    }
-                    else
-                    {
-                        GameOver(matrix, startRow, startCol + 1, false);
-                    }
-                    break;
-            }
-        }
-
-        static void DisplayMatrix(char[,] matrix)
+        private static void DisplayMatrix(char[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -129,51 +87,45 @@ namespace RadioactiveMutantVampireBunnies
             }
         }
 
-        static void ReproductionBunny(char[,] matrix)
+        private static void ReproductionBunny(char[,] matrix)
         {
-            for (int i = 0; i < matrix.GetLength(0); i++)
+            var bunnyPosition = GetBunnyPosition(matrix);
+
+            for (int i = 0; i < bunnyPosition.Length; i += 2)
             {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    if (CellWithBunny(matrix, i, j))
-                    {
-                        // top left
-                        if (CellIsInTheMatrix(matrix, i - 1, j - 1) && matrix[i - 1, j - 1] == '.')
-                            matrix[i - 1, j - 1] = 'B';
-                        // top
-                        if (CellIsInTheMatrix(matrix, i - 1, j) && matrix[i - 1, j] == '.')
-                            matrix[i - 1, j] = 'B';
-                        // top right
-                        if (CellIsInTheMatrix(matrix, i - 1, j + 1) && matrix[i - 1, j + 1] == '.')
-                            matrix[i - 1, j + 1] = 'B';
-                        // left
-                        if(CellIsInTheMatrix(matrix, i, j - 1) && matrix[i, j - 1] == '.')
-                        matrix[i, j - 1] = 'B';
-                        // right
-                        if (CellIsInTheMatrix(matrix, i, j + 1) && matrix[i, j + 1] == '.')
-                            matrix[i, j + 1] = 'B';
-                        // from below left
-                        if (CellIsInTheMatrix(matrix, i + 1, j - 1) && matrix[i + 1, j - 1] == '.')
-                            matrix[i + 1, j - 1] = 'B';
-                        // from below
-                        if (CellIsInTheMatrix(matrix, i + 1, j) && matrix[i + 1, j] == '.')
-                            matrix[i + 1, j] = 'B';
-                        // from below right
-                        if (CellIsInTheMatrix(matrix, i + 1, j + 1) && matrix[i + 1, j + 1] == '.')
-                            matrix[i + 1, j + 1] = 'B';
-                    }
-                }
+                int row = bunnyPosition[i];
+                int col = bunnyPosition[i + 1];
+
+                // top
+                if (CellIsInTheMatrix(matrix, row - 1, col))
+                    ReproductionBunny(matrix, row - 1, col);
+                // below
+                if (CellIsInTheMatrix(matrix, row + 1, col))
+                    ReproductionBunny(matrix, row + 1, col);
+                // left
+                if (CellIsInTheMatrix(matrix, row, col - 1))
+                    ReproductionBunny(matrix, row, col - 1);
+                // right
+                if (CellIsInTheMatrix(matrix, row, col + 1))
+                    ReproductionBunny(matrix, row, col + 1);
             }
         }
 
-        static void MovePlayer(int row, int col)
+        private static void MovePlayer(char[,] matrix, int row, int col)
         {
+            if (CellWithBunny(matrix, row, col))
+            {
+                GameOver(matrix, row, col);
+                return;
+            }
+
             startRow = row;
             startCol = col;
         }
 
-        static void GameOver(char[,] matrix, int row, int col, bool check = true)
+        private static void GameOver(char[,] matrix, int row, int col, bool check = true)
         {
+            ReproductionBunny(matrix);
             DisplayMatrix(matrix);
             gameOver = true;
             if (check)
@@ -186,7 +138,7 @@ namespace RadioactiveMutantVampireBunnies
             }
         }
 
-        static void GetPlayerPosition(char[,] matrix)
+        private static void GetPlayerPosition(char[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -202,6 +154,24 @@ namespace RadioactiveMutantVampireBunnies
             }
         }
 
+        private static int[] GetBunnyPosition(char[,] matrix)
+        {
+            var bunnyPosition = new List<int>();
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] == 'B')
+                    {
+                        bunnyPosition.Add(i);
+                        bunnyPosition.Add(j);
+                    }
+                }
+            }
+
+            return bunnyPosition.ToArray();
+        }
+
         private static char[,] NewMatrix(int[] dimensions)
         {
             var matrix = new char[dimensions[0], dimensions[1]];
@@ -210,17 +180,21 @@ namespace RadioactiveMutantVampireBunnies
                 var row = Console.ReadLine();
                 for (int j = 0; j < dimensions[1]; j++)
                 {
-                    matrix[i, j] = row[j];
+                    if (row != null) matrix[i, j] = row[j];
                 }
             }
 
             return matrix;
         }
 
-        static bool CellWithBunny(char[,] matrix, int row, int col)
+        private static void ReproductionBunny(char[,] matrix, int row, int col) { matrix[row, col] = 'B'; }
+
+        private static void LeavCell(char[,] matrix, int row, int col) { matrix[row, col] = '.'; }
+
+        private static bool CellWithBunny(char[,] matrix, int row, int col) 
             => matrix[row, col] == 'B';
 
-        static bool CellIsInTheMatrix(char[,] matrix, int row, int col)
+        private static bool CellIsInTheMatrix(char[,] matrix, int row, int col)
             => row >= 0 && matrix.GetLength(0) > row &&
                col >= 0 && matrix.GetLength(1) > col;
     }
