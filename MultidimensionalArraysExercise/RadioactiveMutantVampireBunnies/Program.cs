@@ -11,7 +11,7 @@ namespace RadioactiveMutantVampireBunnies
         private static int currentPlayerRow = 0;
         private static int currentPlayerCol = 0;
         private static bool playerWin = false;
-        private static bool gameOver = false;
+        private static bool bunnyWin = false;
         private static char[,] matrix;
 
         #endregion
@@ -29,7 +29,7 @@ namespace RadioactiveMutantVampireBunnies
                 var direction = commands[i];
                 MovePlayer(direction);
 
-                if (playerWin || gameOver)
+                if (playerWin || bunnyWin)
                 {
                     GameOver();
                     break;
@@ -120,7 +120,7 @@ namespace RadioactiveMutantVampireBunnies
                 {
                     if (CellWithBunny(currentPlayerRow - 1, currentPlayerCol))
                     {
-                        gameOver = true;
+                        bunnyWin = true;
                         currentPlayerRow -= 1;
                     }
                     else
@@ -138,7 +138,7 @@ namespace RadioactiveMutantVampireBunnies
                 {
                     if (CellWithBunny(currentPlayerRow + 1, currentPlayerCol))
                     {
-                        gameOver = true;
+                        bunnyWin = true;
                         currentPlayerRow += 1;
                     }
                     else
@@ -156,7 +156,7 @@ namespace RadioactiveMutantVampireBunnies
                 {
                     if (CellWithBunny(currentPlayerRow, currentPlayerCol - 1))
                     {
-                        gameOver = true;
+                        bunnyWin = true;
                         currentPlayerCol -= 1;
                     }
                     else
@@ -174,7 +174,7 @@ namespace RadioactiveMutantVampireBunnies
                 {
                     if (CellWithBunny(currentPlayerRow, currentPlayerCol + 1))
                     {
-                        gameOver = true;
+                        bunnyWin = true;
                         currentPlayerCol += 1;
                     }
                     else
@@ -242,7 +242,7 @@ namespace RadioactiveMutantVampireBunnies
         {
             if (CellWithPlayer(row, col))
             {
-                gameOver = true;
+                bunnyWin = true;
                 currentPlayerRow = row;
                 currentPlayerCol = col;
             }
@@ -266,7 +266,7 @@ namespace RadioactiveMutantVampireBunnies
                 Console.WriteLine();
             }
 
-            if (gameOver)
+            if (bunnyWin)
             {
                 Console.WriteLine($"dead: {currentPlayerRow} {currentPlayerCol}");
             }
