@@ -8,8 +8,8 @@ namespace RadioactiveMutantVampireBunnies
     {
         #region Fields
 
-        private static int startRow = 0;
-        private static int startCol = 0;
+        private static int currentPlayerRow = 0;
+        private static int currentPlayerCol = 0;
         private static bool playerWin = false;
         private static bool gameOver = false;
         private static char[,] matrix;
@@ -19,31 +19,19 @@ namespace RadioactiveMutantVampireBunnies
 
         static void Main(string[] args)
         {
-            var dimensions = Console.ReadLine()
-                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToArray();
+            var dimensions = Dimensions;
             matrix = NewMatrix(dimensions);
-            var commands = Console.ReadLine(); //'LLRRUUDD'Left, Right, Up, Down
-            
+            var commands = Console.ReadLine();
+            PlayerStartPosition();
+
             for (int i = 0; i < commands.Length; i++)
             {
                 var direction = commands[i];
-                int[] position = GetPlayerPosition();
-                startRow = position[0];
-                startCol = position[1];
                 MovePlayer(direction);
 
-                if (playerWin)
+                if (playerWin || gameOver)
                 {
-                    GameOver(startRow, startCol);
-                    break;
-                }
-
-                if (gameOver)
-                {
-                    ReproductionBunny();
-                    GameOver(startRow, startCol);
+                    GameOver();
                     break;
                 }
             }
@@ -68,27 +56,15 @@ namespace RadioactiveMutantVampireBunnies
             return matrix;
         }
 
+        private static int[] Dimensions
+            => Console.ReadLine()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToArray();
+
         #endregion
 
         #region Get ferst position for Player and Bunnyes
-
-        private static int[] GetPlayerPosition()
-        {
-            var position = new int[2];
-            for (int i = 0; i < matrix.GetLength(0); i++)
-            {
-                for (int j = 0; j < matrix.GetLength(1); j++)
-                {
-                    if (matrix[i, j] == 'P')
-                    {
-                        position[0] = i;
-                        position[1] = j;
-                    }
-                }
-            }
-
-            return position;
-        }
 
         private static int[] GetBunnyPosition()
         {
@@ -112,9 +88,6 @@ namespace RadioactiveMutantVampireBunnies
 
         #region Get cell symbol and borders at the matrix
 
-        private static bool FreeCell(int row, int col)
-            => matrix[row, col] == '.';
-
         private static bool CellWithPlayer(int row, int col)
             => matrix[row, col] == 'P';
 
@@ -133,92 +106,109 @@ namespace RadioactiveMutantVampireBunnies
 
         #region Player actions
 
-        private static void MovePlayer(params char[] direction)
+        private static void MovePlayer(char direction)
         {
-            LeavCell(startRow, startCol);
+            LeavCell(currentPlayerRow, currentPlayerCol);
 
-            if (direction.Contains('U'))
+            if (direction.Equals('U'))
             {
-                if (!CellIsInTheMatrix(startRow - 1, startCol))
+                if (!CellIsInTheMatrix(currentPlayerRow - 1, currentPlayerCol))
                 {
                     playerWin = true;
                 }
                 else
                 {
-                    if (CellWithBunny(startRow - 1, startCol))
+                    if (CellWithBunny(currentPlayerRow - 1, currentPlayerCol))
                     {
                         gameOver = true;
-                        startRow = startRow - 1;
-                        return;
+                        currentPlayerRow -= 1;
                     }
-
-                    SetPlayerNewPosition(startRow - 1, startCol);
+                    else
+                        SetPlayerNewPosition(currentPlayerRow - 1, currentPlayerCol);
                 }
             }
 
-            if (direction.Contains('D'))
+            if (direction.Equals('D'))
             {
-                if (!CellIsInTheMatrix(startRow + 1, startCol))
+                if (!CellIsInTheMatrix(currentPlayerRow + 1, currentPlayerCol))
                 {
                     playerWin = true;
                 }
                 else
                 {
-                    if (CellWithBunny(startRow + 1, startCol))
+                    if (CellWithBunny(currentPlayerRow + 1, currentPlayerCol))
                     {
                         gameOver = true;
-                        startRow = startRow + 1;
-                        return;
+                        currentPlayerRow += 1;
                     }
-
-                    SetPlayerNewPosition(startRow + 1, startCol);
+                    else
+                        SetPlayerNewPosition(currentPlayerRow + 1, currentPlayerCol);
                 }
             }
 
-            if (direction.Contains('L'))
+            if (direction.Equals('L'))
             {
-                if (!CellIsInTheMatrix(startRow, startCol - 1))
+                if (!CellIsInTheMatrix(currentPlayerRow, currentPlayerCol - 1))
                 {
                     playerWin = true;
                 }
                 else
                 {
-                    if (CellWithBunny(startRow, startCol - 1))
+                    if (CellWithBunny(currentPlayerRow, currentPlayerCol - 1))
                     {
                         gameOver = true;
-                        startCol = startCol - 1;
-                        return;
+                        currentPlayerCol -= 1;
                     }
-
-                    SetPlayerNewPosition(startRow, startCol - 1);
+                    else
+                        SetPlayerNewPosition(currentPlayerRow, currentPlayerCol - 1);
                 }
             }
 
-            if (direction.Contains('R'))
+            if (direction.Equals('R'))
             {
-                if (!CellIsInTheMatrix(startRow, startCol + 1))
+                if (!CellIsInTheMatrix(currentPlayerRow, currentPlayerCol + 1))
                 {
                     playerWin = true;
                 }
                 else
                 {
-                    if (CellWithBunny(startRow, startCol + 1))
+                    if (CellWithBunny(currentPlayerRow, currentPlayerCol + 1))
                     {
                         gameOver = true;
-                        startCol = startCol + 1;
-                        return;
+                        currentPlayerCol += 1;
                     }
-
-                    SetPlayerNewPosition(startRow, startCol + 1);
+                    else
+                        SetPlayerNewPosition(currentPlayerRow, currentPlayerCol + 1);
                 }
             }
 
             ReproductionBunny();
         }
 
+        private static void PlayerStartPosition()
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] == 'P')
+                    {
+                        currentPlayerRow = i;
+                        currentPlayerCol = j;
+                        return;
+                    }
+                }
+            }
+        }
+
         private static void LeavCell(int row, int col) { matrix[row, col] = '.'; }
 
-        private static void SetPlayerNewPosition(int row, int col) { matrix[row, col] = 'P'; }
+        private static void SetPlayerNewPosition(int row, int col)
+        {
+            matrix[row, col] = 'P';
+            currentPlayerRow = row;
+            currentPlayerCol = col;
+        }
 
         #endregion
 
@@ -234,16 +224,16 @@ namespace RadioactiveMutantVampireBunnies
                 int col = bunnyPosition[i + 1];
 
                 // top
-                if (CellIsInTheMatrix(row - 1, col) && FreeCell(row - 1, col))
+                if (CellIsInTheMatrix(row - 1, col))
                     ReproductionBunny(row - 1, col);
                 // below
-                if (CellIsInTheMatrix(row + 1, col) && FreeCell(row + 1, col))
+                if (CellIsInTheMatrix(row + 1, col))
                     ReproductionBunny(row + 1, col);
                 // left
-                if (CellIsInTheMatrix(row, col - 1) && FreeCell(row, col - 1))
+                if (CellIsInTheMatrix(row, col - 1))
                     ReproductionBunny(row, col - 1);
                 // right
-                if (CellIsInTheMatrix(row, col + 1) && FreeCell(row, col + 1))
+                if (CellIsInTheMatrix(row, col + 1))
                     ReproductionBunny(row, col + 1);
             }
         }
@@ -253,9 +243,8 @@ namespace RadioactiveMutantVampireBunnies
             if (CellWithPlayer(row, col))
             {
                 gameOver = true;
-                startRow = row;
-                startCol = col;
-                return;
+                currentPlayerRow = row;
+                currentPlayerCol = col;
             }
 
             matrix[row, col] = 'B';
@@ -265,21 +254,7 @@ namespace RadioactiveMutantVampireBunnies
 
         #region Print matrix on the consol
 
-        private static void GameOver(int row, int col)
-        {
-            DisplayMatrix();
-            if (gameOver)
-            {
-                Console.WriteLine($"dead: {row} {col}");
-            }
-
-            if (playerWin)
-            {
-                Console.WriteLine($"won: {row} {col}");
-            }
-        }
-
-        private static void DisplayMatrix()
+        private static void GameOver()
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -289,6 +264,16 @@ namespace RadioactiveMutantVampireBunnies
                 }
 
                 Console.WriteLine();
+            }
+
+            if (gameOver)
+            {
+                Console.WriteLine($"dead: {currentPlayerRow} {currentPlayerCol}");
+            }
+
+            if (playerWin)
+            {
+                Console.WriteLine($"won: {currentPlayerRow} {currentPlayerCol}");
             }
         }
 
