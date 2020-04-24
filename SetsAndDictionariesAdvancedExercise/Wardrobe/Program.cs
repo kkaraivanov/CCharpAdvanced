@@ -38,7 +38,7 @@ namespace Wardrobe
             var search = Input(" ");
             var searchColor = search[0];
             var searchClothe = search[1];
-            ;
+            
             foreach (var (color, clothe) in clothes)
             {
                 Console.WriteLine($"{color} clothes:");
