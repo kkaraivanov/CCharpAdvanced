@@ -41,7 +41,6 @@ namespace TheV_Logger
                 {
                     vloger = input.Split(commands[1])[0];
                     temp = input.Split(commands[1])[1];
-                    var vlogerName = vlogers.Keys.ToList();
 
                     if(!vlogers.ContainsKey(vloger) || !vlogers.ContainsKey(temp))
                         continue;
