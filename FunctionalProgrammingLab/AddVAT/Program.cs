@@ -7,14 +7,15 @@ namespace AddVAT
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(string.Join(Environment.NewLine, Result));
-        }
-
-        static string[] Result =>
-            Console.ReadLine()
+            double vat = 0.20;
+            var numbers = Console.ReadLine()
                 .Split(',', StringSplitOptions.RemoveEmptyEntries)
                 .Select(double.Parse)
-                .Select(x => $"{x += x * 0.20:f2}")
                 .ToArray();
+            string parseVat(double x) => $"{x += (x * vat):f2}";
+            var result = numbers.Select(parseVat).ToArray();
+
+            Console.WriteLine(string.Join(Environment.NewLine, result));
+        }
     }
 }
