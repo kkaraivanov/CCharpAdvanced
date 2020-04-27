@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30001.183
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortEvenNumbers", "SortEvenNumbers\SortEvenNumbers.csproj", "{A38511B5-4067-44C1-A647-4A4460B3CEFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A38511B5-4067-44C1-A647-4A4460B3CEFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A38511B5-4067-44C1-A647-4A4460B3CEFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A38511B5-4067-44C1-A647-4A4460B3CEFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A38511B5-4067-44C1-A647-4A4460B3CEFB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FBD2E8B2-E1AB-45D3-8986-C138AC00841C}
+	EndGlobalSection
+EndGlobal
