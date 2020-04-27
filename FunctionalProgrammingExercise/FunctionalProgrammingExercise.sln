@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActionPrint", "ActionPrint\ActionPrint.csproj", "{97610B9C-8532-4535-8FFD-E0C29EAD8A60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KnightsOfHonor", "KnightsOfHonor\KnightsOfHonor.csproj", "{EFD34C30-F0A7-47F8-87FF-60B508ECAB7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomMinFunction", "CustomMinFunction\CustomMinFunction.csproj", "{5D9BD325-D83E-4521-A89A-F371DCEA5C49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{97610B9C-8532-4535-8FFD-E0C29EAD8A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97610B9C-8532-4535-8FFD-E0C29EAD8A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97610B9C-8532-4535-8FFD-E0C29EAD8A60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFD34C30-F0A7-47F8-87FF-60B508ECAB7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFD34C30-F0A7-47F8-87FF-60B508ECAB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFD34C30-F0A7-47F8-87FF-60B508ECAB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFD34C30-F0A7-47F8-87FF-60B508ECAB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D9BD325-D83E-4521-A89A-F371DCEA5C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D9BD325-D83E-4521-A89A-F371DCEA5C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D9BD325-D83E-4521-A89A-F371DCEA5C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D9BD325-D83E-4521-A89A-F371DCEA5C49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
