@@ -10,8 +10,6 @@ namespace TheV_Logger
     {
         static void Main(string[] args)
         {
-            //<vloger,<followera,followersList>>
-            //<vloger,<following,followingList>>
             var vlogers = new Dictionary<string, Dictionary<string, List<string>>>();
             var followSkill = new string[] { "following", "followers" };
             var commands = new string[] { " joined The", " followed " };
