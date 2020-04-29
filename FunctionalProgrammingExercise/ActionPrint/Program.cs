@@ -8,12 +8,12 @@ namespace ActionPrint
     {
         static void Main(string[] args)
         {
-            string input = Console.ReadLine();
+            Action<string> printName = input => { Console.WriteLine($"{input}"); };
 
-            Action<string> print = x 
-                => Console.WriteLine(string.Join(Environment.NewLine, x.Split().ToArray()));
-
-            print(input);
+            Console.ReadLine()
+                .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .ToList()
+                .ForEach(printName);
         }
     }
 }
