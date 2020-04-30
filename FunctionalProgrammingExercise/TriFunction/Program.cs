@@ -17,7 +17,7 @@ namespace TriFunction
             //        .Select(ch => (int) ch)
             //        .Sum() >= num;
 
-            //string iisplayIsValidName(string[] arr, int num, Func<string, int, bool> func) 
+            //string displayIsValidName(string[] arr, int num, Func<string, int, bool> func) 
             //    => arr.FirstOrDefault(str => func(str, num));
 
             Func<string, int, bool> isValidName = (str, num) 
