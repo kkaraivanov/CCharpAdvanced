@@ -4,13 +4,13 @@
 
     public class Car
     {
-        public string Make { get; private set; }
+        public string Make { get;}
 
-        public string Model { get; private set; }
+        public string Model { get;}
 
-        public int HorsePower { get; private set; }
+        public int HorsePower { get;}
 
-        public string RegistrationNumber { get; private set; }
+        public string RegistrationNumber { get;}
 
         public Car(string make, string model, int horsePower, string registrationNumber)
         {

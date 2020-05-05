@@ -32,10 +32,10 @@
             //RegistrationNumber: EB8787MN
 
             Console.WriteLine(parking.RemoveCar("EB8787MN"));
-            //Successfullyremoved EB8787MN
+            //Successfully removed EB8787MN
 
-            Console.WriteLine(parking.Count); //1
-
+            Console.WriteLine(parking.Count); 
+            //1
         }
     }
 }
