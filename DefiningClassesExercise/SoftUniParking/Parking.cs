@@ -10,7 +10,7 @@
 
         private bool CarExist(string registrationNumber) => this.Cars.Any(x => x.RegistrationNumber == registrationNumber);
 
-        private bool ParkingIsFull => this.Count >= this.capacity;
+        private bool ParkingIsFull => this.Count == this.capacity;
 
         public List<Car> Cars { get; }
 
