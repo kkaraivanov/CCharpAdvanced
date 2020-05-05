@@ -18,6 +18,12 @@
 
         public int Count => this.Cars.Count;
 
+        public Parking(int capacity)
+        {
+            this.capacity = capacity;
+            this.Cars = new List<Car>();
+        }
+
         public string AddCar(Car car)
         {
             if (this.CarExist(car.RegistrationNumber))
@@ -41,12 +47,6 @@
             
             this.Cars.Remove(this.GetCar(registrationNumber));
             return $"Successfully removed {registrationNumber}";
-        }
-
-        public Parking(int capacity)
-        {
-            this.capacity = capacity;
-            this.Cars = new List<Car>();
         }
 
         public void RemoveSetOfRegistrationNumber(List<string> registrationNumbers)
