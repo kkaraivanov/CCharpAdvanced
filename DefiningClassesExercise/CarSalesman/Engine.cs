@@ -4,13 +4,13 @@
 
     public class Engine
     {
-        public string Model { get; set; }
+        public string Model { get;}
 
-        public int Power { get; set; }
+        public int Power { get;}
 
-        public int Displacement { get; set; }
+        public int Displacement { get; private set; }
 
-        public string Efficiency { get; set; }
+        public string Efficiency { get; private set; }
 
         public Engine(string model, int power)
         {

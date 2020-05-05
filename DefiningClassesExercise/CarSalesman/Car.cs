@@ -4,13 +4,13 @@
 
     public class Car
     {
-        public string Model { get; set; }
+        public string Model { get;}
 
-        public Engine Engine { get; set; }
+        public Engine Engine { get;}
 
-        public int Weight { get; set; }
+        public int Weight { get; private set; }
 
-        public string Color { get; set; }
+        public string Color { get; private set; }
 
         public Car(string model, Engine engine)
         {
