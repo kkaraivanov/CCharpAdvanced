@@ -1,12 +1,12 @@
-﻿namespace Box
+﻿namespace BoxOfT
 {
     using System;
 
-    class StartUp
+    public class StartUp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }
