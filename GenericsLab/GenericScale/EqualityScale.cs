@@ -14,6 +14,9 @@
             this.right = right;
         }
 
-        public T AreEqual() => this.left.CompareTo(this.right) > 0 ? this.left : this.right;
+        public T AreEqual() => 
+            this.left.CompareTo(this.right) > 0 ? this.left :
+            this.left.CompareTo(this.right) < 0 ? this.right : 
+            default(T);
     }
 }
