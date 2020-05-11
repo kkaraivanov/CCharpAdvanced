@@ -15,7 +15,7 @@
 
         public override string ToString()
         {
-            return $"{item1} -> {item2}";
+            return $"{this.item1} -> {this.item2}";
         }
     }
 }
