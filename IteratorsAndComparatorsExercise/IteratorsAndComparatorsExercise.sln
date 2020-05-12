@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Froggy", "Froggy\Froggy.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComparingObjects", "ComparingObjects\ComparingObjects.csproj", "{54388C0D-EB05-4AD6-B35C-6FC51FE4D0B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EqualityLogic", "EqualityLogic\EqualityLogic.csproj", "{9D4B3B11-8A26-463C-ACB8-5D93EAF2CC0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{54388C0D-EB05-4AD6-B35C-6FC51FE4D0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54388C0D-EB05-4AD6-B35C-6FC51FE4D0B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54388C0D-EB05-4AD6-B35C-6FC51FE4D0B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4B3B11-8A26-463C-ACB8-5D93EAF2CC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4B3B11-8A26-463C-ACB8-5D93EAF2CC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4B3B11-8A26-463C-ACB8-5D93EAF2CC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4B3B11-8A26-463C-ACB8-5D93EAF2CC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
