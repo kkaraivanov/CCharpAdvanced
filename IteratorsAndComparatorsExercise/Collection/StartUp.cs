@@ -23,23 +23,14 @@
                         Console.WriteLine(iterator.Move());
                         break;
                     case "Print":
-                        try
-                        {
-                            iterator.Print();
-                        }
-                        catch (InvalidOperationException e)
-                        {
-                            Console.WriteLine(e.Message);
-                        }
+                        Console.WriteLine(iterator.Print());
                         break;
                     case "HasNext":
                         Console.WriteLine(iterator.HasNext());
                         break;
                     case "PrintAll":
-                        Console.WriteLine(string.Join(" ", iterator));
+                        Console.WriteLine(iterator.PrintAll());
                         break;
-                    default:
-                        throw new ArgumentException();
                 }
             }
         }

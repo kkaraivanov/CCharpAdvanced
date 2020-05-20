@@ -1,8 +1,8 @@
 ﻿namespace Collection
 {
-    using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class ListyIterator<T> : IEnumerable<T>
     {
@@ -11,12 +11,12 @@
 
         public ListyIterator(params T[] items)
         {
-            this.items = new List<T>(items);
+            this.items = items.ToList();
         }
 
         public bool Move()
         {
-            if (this.index < this.items.Count - 1)
+            if (HasNext())
             {
                 this.index++;
                 return true;
@@ -25,17 +25,11 @@
             return false;
         }
 
+        public string Print() => this.items.Count == 0 ? "Invalid Operation!" : $"{this.items[this.index]}";
+
+        public string PrintAll() => string.Join(" ", this.items);
+
         public bool HasNext() => this.index + 1 < this.items.Count;
-
-        public void Print()
-        {
-            if (this.items.Count == 0)
-            {
-                throw new InvalidOperationException("Invalid Operation!");
-            }
-
-            Console.WriteLine(this.items[this.index]);
-        }
 
         public IEnumerator<T> GetEnumerator() => this.items.GetEnumerator();
 
