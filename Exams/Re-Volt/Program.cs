@@ -171,7 +171,6 @@
 
         static void Move(int currentRow, int currentCol, string[] direction)
         {
-            ;
             string param = direction[0];
             if (matrix[currentRow, currentCol] == 'B')
             {
