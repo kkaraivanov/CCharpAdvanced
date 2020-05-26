@@ -113,32 +113,33 @@
             string param = direction[0];
             int currentRow = playerPosition[0];
             int currentCol = playerPosition[1];
+            int[] newPosition;
             LeavPosition();
 
             if (param == "left")
             {
-                var newPosition = new int[] { currentRow, currentCol - 1 };
+                newPosition = new int[] { currentRow, currentCol - 1 };
 
                 currentCol = GetCol(newPosition, param);
                 playerPosition[1] = currentCol;
             }
             else if (param == "right")
             {
-                var newPosition = new int[] { currentRow, currentCol + 1 };
+                newPosition = new int[] { currentRow, currentCol + 1 };
 
                 currentCol = GetCol(newPosition, param);
                 playerPosition[1] = currentCol;
             }
             else if (param == "up")
             {
-                var newPosition = new int[] { currentRow - 1, currentCol };
+                newPosition = new int[] { currentRow - 1, currentCol };
 
                 currentRow = GetRow(newPosition, param);
                 playerPosition[0] = currentRow;
             }
             else if (param == "down")
-            {
-                var newPosition = new int[] { currentRow + 1, currentCol };
+            { 
+                newPosition = new int[] { currentRow + 1, currentCol };
 
                 currentRow = GetRow(newPosition, param);
                 playerPosition[0] = currentRow;
