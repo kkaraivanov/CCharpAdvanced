@@ -25,6 +25,7 @@
                 if (isEven)
                 {
                     AddElements(firstElement, secondElement);
+                    RemoveElements();
                 }
                 else
                 {
@@ -44,6 +45,10 @@
         private static void AddElements(int firstElement, int secondElement)
         {
             items.Add(firstElement + secondElement);
+        }
+
+        private static void RemoveElements()
+        {
             firstBox.Dequeue();
             secondBox.Pop();
         }
