@@ -24,9 +24,7 @@
 
                 if (isEven)
                 {
-                    items.Add(firstElement + secondElement);
-                    firstBox.Dequeue();
-                    secondBox.Pop();
+                    AddElements(firstElement, secondElement);
                 }
                 else
                 {
@@ -41,6 +39,13 @@
         private static void MoveElsements()
         {
             firstBox.Enqueue(secondBox.Pop());
+        }
+
+        private static void AddElements(int firstElement, int secondElement)
+        {
+            items.Add(firstElement + secondElement);
+            firstBox.Dequeue();
+            secondBox.Pop();
         }
 
         private static string DisplayLoot() => items.Sum() >= 100 ? $"Your loot was epic! Value: {items.Sum()}" : $"Your loot was poor... Value: {items.Sum()}";
