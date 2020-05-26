@@ -1,6 +1,7 @@
 ﻿namespace Re_Volt
 {
     using System;
+    using System.Linq;
     using System.Text;
 
     class Program
@@ -24,9 +25,46 @@
             return tempMatrix;
         }
 
-        private static Func<int[], bool> CanMove = currentPosition =>
+        static Func<int[], bool> CanMove = currentPosition =>
             currentPosition[0] >= 0 && matrix.GetLength(0) > currentPosition[0] &&
             currentPosition[1] >= 0 && matrix.GetLength(1) > currentPosition[1];
+
+        static int GetRow(int[] newPosition, string param)
+        {
+            int num = newPosition[0];
+
+            if (!CanMove(newPosition))
+            {
+                if (param == "up")
+                {
+                    num = matrix.GetLength(0) - 1;
+                }
+                else
+                {
+                    num = 0;
+                }
+            }
+
+            return num;
+        }
+
+        static int GetCol(int[] newPosition, string param)
+        {
+            int num = newPosition[1];
+            if (!CanMove(newPosition))
+            {
+                if (param == "left")
+                {
+                    num = matrix.GetLength(1) - 1;
+                }
+                else
+                {
+                    num = 0;
+                }
+            }
+
+            return num;
+        }
 
         static string ReadLine() => Console.ReadLine();
 
@@ -80,57 +118,29 @@
             if (param == "left")
             {
                 var newPosition = new int[] { currentRow, currentCol - 1 };
-                if (CanMove(newPosition))
-                {
-                    currentCol--;
-                }
-                else
-                {
-                    currentCol = matrix.GetLength(1) - 1;
-                }
 
+                currentCol = GetCol(newPosition, param);
                 playerPosition[1] = currentCol;
             }
             else if (param == "right")
             {
                 var newPosition = new int[] { currentRow, currentCol + 1 };
-                if (CanMove(newPosition))
-                {
-                    currentCol++;
-                }
-                else
-                {
-                    currentCol = 0;
-                }
 
+                currentCol = GetCol(newPosition, param);
                 playerPosition[1] = currentCol;
             }
             else if (param == "up")
             {
                 var newPosition = new int[] { currentRow - 1, currentCol };
-                if (CanMove(newPosition))
-                {
-                    currentRow--;
-                }
-                else
-                {
-                    currentRow = matrix.GetLength(0) - 1;
-                }
 
+                currentRow = GetRow(newPosition, param);
                 playerPosition[0] = currentRow;
             }
             else if (param == "down")
             {
                 var newPosition = new int[] { currentRow + 1, currentCol };
-                if (CanMove(newPosition))
-                {
-                    currentRow++;
-                }
-                else
-                {
-                    currentRow = 0;
-                }
 
+                currentRow = GetRow(newPosition, param);
                 playerPosition[0] = currentRow;
             }
 
@@ -146,10 +156,10 @@
                 switch (param)
                 {
                     case "left":
-                        MoveDirection("left");
+                        MoveDirection(param);
                         break;
                     case "right":
-                        MoveDirection("right");
+                        MoveDirection(param);
                         break;
                     case "down":
                         MoveDirection(param);
