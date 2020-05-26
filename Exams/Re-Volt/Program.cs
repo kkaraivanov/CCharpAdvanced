@@ -40,22 +40,7 @@
             for (int i = 0; i < countOfComands; i++)
             {
                 string currentCommand = ReadLine();
-
-                switch (currentCommand)
-                {
-                    case "left":
-                        MoveLeft(currentCommand);
-                        break;
-                    case "right":
-                        MoveRight(currentCommand);
-                        break;
-                    case "up":
-                        MoveUp(currentCommand);
-                        break;
-                    case "down":
-                        MoveDown(currentCommand);
-                        break;
-                }
+                MoveDirection(currentCommand);
 
                 if (complete)
                     break;
@@ -85,86 +70,70 @@
             Console.WriteLine(sb);
         }
 
-        static void MoveLeft(params string[] direction)
+        static void MoveDirection(params string[] direction)
         {
+            string param = direction[0];
             int currentRow = playerPosition[0];
             int currentCol = playerPosition[1];
-            var newPosition = new int[] { currentRow, currentCol - 1 };
             LeavPosition();
 
-            if (CanMove(newPosition))
+            if (param == "left")
             {
-                currentCol--;
+                var newPosition = new int[] { currentRow, currentCol - 1 };
+                if (CanMove(newPosition))
+                {
+                    currentCol--;
+                }
+                else
+                {
+                    currentCol = matrix.GetLength(1) - 1;
+                }
+
+                playerPosition[1] = currentCol;
             }
-            else
+            else if (param == "right")
             {
-                currentCol = matrix.GetLength(1) - 1;
+                var newPosition = new int[] { currentRow, currentCol + 1 };
+                if (CanMove(newPosition))
+                {
+                    currentCol++;
+                }
+                else
+                {
+                    currentCol = 0;
+                }
+
+                playerPosition[1] = currentCol;
             }
-
-            playerPosition[1] = currentCol;
-            Move(currentRow, currentCol, direction);
-            PlayerNewPosition();
-        }
-
-        static void MoveRight(params string[] direction)
-        {
-            int currentRow = playerPosition[0];
-            int currentCol = playerPosition[1];
-            var newPosition = new int[] { currentRow, currentCol + 1 };
-            LeavPosition();
-
-            if (CanMove(newPosition))
+            else if (param == "up")
             {
-                currentCol++;
+                var newPosition = new int[] { currentRow - 1, currentCol };
+                if (CanMove(newPosition))
+                {
+                    currentRow--;
+                }
+                else
+                {
+                    currentRow = matrix.GetLength(0) - 1;
+                }
+
+                playerPosition[0] = currentRow;
             }
-            else
+            else if (param == "down")
             {
-                currentCol = 0;
-            }
+                var newPosition = new int[] { currentRow + 1, currentCol };
+                if (CanMove(newPosition))
+                {
+                    currentRow++;
+                }
+                else
+                {
+                    currentRow = 0;
+                }
 
-            playerPosition[1] = currentCol;
-            Move(currentRow, currentCol, direction);
-            PlayerNewPosition();
-        }
-
-        static void MoveUp(params string[] direction)
-        {
-            int currentRow = playerPosition[0];
-            int currentCol = playerPosition[1];
-            var newPosition = new int[] { currentRow - 1, currentCol };
-            LeavPosition();
-
-            if (CanMove(newPosition))
-            {
-                currentRow--;
-            }
-            else
-            {
-                currentRow = matrix.GetLength(0) - 1;
-            }
-
-            playerPosition[0] = currentRow;
-            Move(currentRow, currentCol, direction);
-            PlayerNewPosition();
-        }
-
-        private static void MoveDown(params string[] direction)
-        {
-            int currentRow = playerPosition[0];
-            int currentCol = playerPosition[1];
-            var newPosition = new int[] { currentRow + 1, currentCol };
-            LeavPosition();
-
-            if (CanMove(newPosition))
-            {
-                currentRow++;
-            }
-            else
-            {
-                currentRow = 0;
+                playerPosition[0] = currentRow;
             }
 
-            playerPosition[0] = currentRow;
             Move(currentRow, currentCol, direction);
             PlayerNewPosition();
         }
@@ -177,16 +146,16 @@
                 switch (param)
                 {
                     case "left":
-                        MoveLeft("left");
+                        MoveDirection("left");
                         break;
                     case "right":
-                        MoveRight("right");
+                        MoveDirection("right");
                         break;
                     case "down":
-                        MoveDown(param);
+                        MoveDirection(param);
                         break;
                     case "up":
-                        MoveUp(param);
+                        MoveDirection(param);
                         break;
                 }
 
@@ -197,16 +166,16 @@
                 switch (param)
                 {
                     case "left":
-                        MoveRight("right");
+                        MoveDirection("right");
                         break;
                     case "right":
-                        MoveLeft("left");
+                        MoveDirection("left");
                         break;
                     case "down":
-                        MoveUp("up");
+                        MoveDirection("up");
                         break;
                     case "up":
-                        MoveDown("down");
+                        MoveDirection("down");
                         break;
                 }
 
