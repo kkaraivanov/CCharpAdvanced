@@ -6,6 +6,17 @@
 
     public class StartUp
     {
+        private static Trainer NewTrainer(string[] input)
+        {
+            var trainetr = new Trainer(input[0]);
+            trainetr.AddPocemon(NewPokemon(input));
+
+            return trainetr;
+        }
+
+        static Pokemon NewPokemon(string[] input) =>
+            new Pokemon(input[1], input[2], int.Parse(input[3]));
+
         static void Main(string[] args)
         {
             var trainers = new List<Trainer>();
@@ -37,19 +48,6 @@
                 .OrderByDescending(x => x.NumberOfBadges)
                 .ToList()
                 .ForEach(Console.WriteLine);
-        }
-
-        private static Trainer NewTrainer(string[] input)
-        {
-            var trainetr = new Trainer(input[0]);
-            trainetr.AddPocemon(NewPokemon(input));
-
-            return trainetr;
-        }
-
-        static Pokemon NewPokemon(string[] input)
-        {
-            return new Pokemon(input[1], input[2], int.Parse(input[3]));
         }
 
         private static void Tournament(string element, List<Trainer> trainers)
