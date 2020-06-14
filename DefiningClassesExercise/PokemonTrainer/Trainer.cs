@@ -11,7 +11,11 @@
 
         public List<Pokemon> Pokemons { get; private set; }
 
-        public bool PokemonContainsElement(string element) => Pokemons.Any(x => x.Element == element);
+        public bool PokemonContainsElement(string element) =>
+            Pokemons.Any(x => x.Element == element);
+
+        public override string ToString() =>
+            $"{this.Name} {this.NumberOfBadges} {this.Pokemons.Count}";
 
         public Trainer(string name)
         {
@@ -31,11 +35,6 @@
             {
                 pokemon.HealthDown();
             }
-        }
-
-        public override string ToString()
-        {
-            return $"{this.Name} {this.NumberOfBadges} {this.Pokemons.Count}";
         }
     }
 }
