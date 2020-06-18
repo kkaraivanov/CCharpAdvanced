@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecursiveFactorial", "Recur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SumOfCoins", "SumOfCoins\SumOfCoins.csproj", "{270741B9-B7F6-48FF-AB60-B66E873E9C5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetCover", "SetCover\SetCover.csproj", "{C6EF59F5-F71A-458E-A038-CF678CA188FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SetCover", "SetCover\SetCover.csproj", "{C6EF59F5-F71A-458E-A038-CF678CA188FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeSort", "MergeSort\MergeSort.csproj", "{BC7826F3-8E9D-4C03-BB66-04B7FA928717}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSort", "MergeSort\MergeSort.csproj", "{BC7826F3-8E9D-4C03-BB66-04B7FA928717}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quicksort", "Quicksort\Quicksort.csproj", "{5714B575-F8F1-4405-87A0-62729C2A9576}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Quicksort", "Quicksort\Quicksort.csproj", "{5714B575-F8F1-4405-87A0-62729C2A9576}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearch", "BinarySearch\BinarySearch.csproj", "{64491655-EA98-4533-AE4B-7DDBAD7408FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5714B575-F8F1-4405-87A0-62729C2A9576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5714B575-F8F1-4405-87A0-62729C2A9576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5714B575-F8F1-4405-87A0-62729C2A9576}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64491655-EA98-4533-AE4B-7DDBAD7408FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64491655-EA98-4533-AE4B-7DDBAD7408FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64491655-EA98-4533-AE4B-7DDBAD7408FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64491655-EA98-4533-AE4B-7DDBAD7408FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,12 +11,12 @@
                 .Split(' ', StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
                 .ToArray();
-            QuickSort<int>(testList, 0, testList.Length - 1);
+            QuickSort(testList, 0, testList.Length - 1);
 
             Console.WriteLine(string.Join(" ", testList));
         }
 
-        private static void QuickSort<T>(T[] arr, int left, int right) where T : IComparable
+        private static void QuickSort<T>( T[] arr, int left, int right) where T : IComparable
         {
             if (left < right)
             {
