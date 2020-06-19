@@ -4,7 +4,7 @@
 
     public class CustomLinkedList<T>
     {
-        private CustomNode<T> first;
+        private CustomNode<T> head;
         private CustomNode<T> tail;
         private int count;
 
@@ -21,7 +21,7 @@
                     throw new ArgumentOutOfRangeException("Index out of range!");
                 }
 
-                var currentNode = this.first;
+                var currentNode = this.head;
                 for (int i = 0; i < index; i++)
                 {
                     currentNode = currentNode.Next;
@@ -36,7 +36,7 @@
                     throw new ArgumentOutOfRangeException("Index out of range!");
                 }
 
-                var currentNode = this.first;
+                var currentNode = this.head;
                 for (int i = 0; i < index; i++)
                 {
                     currentNode = currentNode.Next;
@@ -48,17 +48,17 @@
 
         public CustomLinkedList()
         {
-            this.first = null;
+            this.head = null;
             this.tail = null;
             this.count = 0;
         }
 
         public void AddFirst(T item)
         {
-            if (this.first == null)
+            if (this.head == null)
             {
-                this.first = new CustomNode<T>(item);
-                this.tail = this.first;
+                this.head = new CustomNode<T>(item);
+                this.tail = this.head;
             }
             else
             {
@@ -84,7 +84,7 @@
             count++;
             var newItem = new CustomNode<T>(item);
             int currentIndex = 0;
-            var currentItem = this.first;
+            var currentItem = this.head;
             CustomNode<T> prevItem = null;
 
             while (currentIndex < index)
@@ -96,10 +96,10 @@
 
             if (index == 0)
             {
-                newItem.Previous = this.first.Previous;
-                newItem.Next = this.first;
-                this.first.Previous = newItem;
-                this.first = newItem;
+                newItem.Previous = this.head.Previous;
+                newItem.Next = this.head;
+                this.head.Previous = newItem;
+                this.head = newItem;
             }
             else if (index == count - 1)
             {
@@ -119,7 +119,7 @@
         public void RemoveFirst(T item)
         {
             int currentIndex = 0;
-            var currentItem = this.first;
+            var currentItem = this.head;
             CustomNode<T> prevItem = null;
 
             while (currentItem != null)
@@ -141,12 +141,12 @@
                 count--;
                 if (count == 0)
                 {
-                    this.first = null;
+                    this.head = null;
                 }
                 else if (prevItem == null)
                 {
-                    this.first = currentItem.Next;
-                    this.first.Previous = null;
+                    this.head = currentItem.Next;
+                    this.head.Previous = null;
                 }
                 else if (currentItem == tail)
                 {
@@ -169,7 +169,7 @@
             }
 
             int currentIndex = 0;
-            var currentItem = this.first;
+            var currentItem = this.head;
             CustomNode<T> prevItem = null;
 
             while (currentIndex < index)
@@ -181,12 +181,12 @@
 
             if (this.count == 0)
             {
-                this.first = null;
+                this.head = null;
             }
             else if (prevItem == null)
             {
-                this.first = currentItem.Next;
-                this.first.Previous = null;
+                this.head = currentItem.Next;
+                this.head.Previous = null;
             }
             else if (index == count - 1)
             {
@@ -206,7 +206,7 @@
         public int IndexOf(T item)
         {
             int index = 0;
-            var currentItem = this.first;
+            var currentItem = this.head;
 
             while (currentItem != null)
             {
@@ -232,7 +232,7 @@
 
         public void Clear()
         {
-            this.first = null;
+            this.head = null;
             this.tail = null;
             this.count = 0;
         }
