@@ -70,7 +70,7 @@
             return removedElement;
         }
 
-        private T RemoveLast()
+        public T RemoveLast()
         {
             if (this.Count == 0)
             {
