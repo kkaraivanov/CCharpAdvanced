@@ -53,7 +53,7 @@
             this.count = 0;
         }
 
-        public void AddFirst(T item)
+        public void Add(T item)
         {
             if (this.head == null)
             {
@@ -67,11 +67,6 @@
             }
 
             count++;
-        }
-
-        public void AddLast(T item)
-        {
-            Insert(item, count);
         }
 
         public void Insert(T item, int index)
@@ -116,7 +111,7 @@
             }
         }
 
-        public void RemoveFirst(T item)
+        public void Remove(T item)
         {
             int currentIndex = 0;
             var currentItem = this.head;
