@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30105.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBoxOfString", "GenericBoxOfString\GenericBoxOfString.csproj", "{FEB234C6-19D0-4EBD-A8F6-3E420F8442E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericBoxOfString", "GenericBoxOfString\GenericBoxOfString.csproj", "{FEB234C6-19D0-4EBD-A8F6-3E420F8442E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericBoxOfInteger", "GenericBoxOfInteger\GenericBoxOfInteger.csproj", "{BADC5578-70C2-4D1C-A8F9-E1A8EB179FC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericBoxOfInteger", "GenericBoxOfInteger\GenericBoxOfInteger.csproj", "{BADC5578-70C2-4D1C-A8F9-E1A8EB179FC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericSwapMethodString", "GenericSwapMethodString\GenericSwapMethodString.csproj", "{35B7902E-A916-4DFE-8F18-B280652B55AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericSwapMethodString", "GenericSwapMethodString\GenericSwapMethodString.csproj", "{35B7902E-A916-4DFE-8F18-B280652B55AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericSwapMethodInteger", "GenericSwapMethodInteger\GenericSwapMethodInteger.csproj", "{7B039C53-F4D2-4717-8E9D-F2A0D86B2FA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericSwapMethodInteger", "GenericSwapMethodInteger\GenericSwapMethodInteger.csproj", "{7B039C53-F4D2-4717-8E9D-F2A0D86B2FA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCountMethodString", "GenericCountMethodString\GenericCountMethodString.csproj", "{06909173-58D3-4878-9A00-1ABF7457480E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericCountMethodString", "GenericCountMethodString\GenericCountMethodString.csproj", "{06909173-58D3-4878-9A00-1ABF7457480E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericCountMethodDouble", "GenericCountMethodDouble\GenericCountMethodDouble.csproj", "{7E8A4960-7C40-4FAB-B1A1-6F2759FC71BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenericCountMethodDouble", "GenericCountMethodDouble\GenericCountMethodDouble.csproj", "{7E8A4960-7C40-4FAB-B1A1-6F2759FC71BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tuple", "Tuple\Tuple.csproj", "{467E5DC4-EF9E-46EE-B881-54F2998C23C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tuple", "Tuple\Tuple.csproj", "{467E5DC4-EF9E-46EE-B881-54F2998C23C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threeuple", "Threeuple\Threeuple.csproj", "{81DECE05-8452-4D12-81B4-2ED5962C011F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threeuple", "Threeuple\Threeuple.csproj", "{81DECE05-8452-4D12-81B4-2ED5962C011F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomLinkedList", "CustomLinkedList\CustomLinkedList.csproj", "{588E8909-030D-43E5-B950-0B0E2EE8F64B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomLinkedList", "CustomLinkedList\CustomLinkedList.csproj", "{588E8909-030D-43E5-B950-0B0E2EE8F64B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDoublyLinkedList", "CustomDoublyLinkedList\CustomDoublyLinkedList.csproj", "{53CEA41E-A2DA-404A-AD1A-59BD889E9ED4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{588E8909-030D-43E5-B950-0B0E2EE8F64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{588E8909-030D-43E5-B950-0B0E2EE8F64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{588E8909-030D-43E5-B950-0B0E2EE8F64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53CEA41E-A2DA-404A-AD1A-59BD889E9ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53CEA41E-A2DA-404A-AD1A-59BD889E9ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53CEA41E-A2DA-404A-AD1A-59BD889E9ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53CEA41E-A2DA-404A-AD1A-59BD889E9ED4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
