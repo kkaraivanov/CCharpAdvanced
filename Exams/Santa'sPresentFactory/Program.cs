@@ -7,6 +7,21 @@
     class Program
     {
         private static Dictionary<string, List<int>> toys = new Dictionary<string, List<int>>();
+
+        private static Func<int, bool> ToyPattern = element => element switch
+        {
+            150 => true,
+            250 => true,
+            300 => true,
+            400 => true,
+            _ => false
+        };
+
+        private static int[] Input => Console.ReadLine()
+            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
+            .Select(int.Parse)
+            .ToArray();
+
         static void Main(string[] args)
         {
             var materials = new Stack<int>(Input);
@@ -88,20 +103,6 @@
 
             toys[toy].Add(element);
         }
-
-        private static Func<int, bool> ToyPattern = element => element switch
-        {
-            150 => true,
-            250 => true,
-            300 => true,
-            400 => true,
-            _ => false
-        };
-
-        private static int[] Input => Console.ReadLine()
-            .Split(' ', StringSplitOptions.RemoveEmptyEntries)
-            .Select(int.Parse)
-            .ToArray();
     }
 
     public static class Extension
