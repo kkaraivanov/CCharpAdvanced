@@ -29,7 +29,7 @@
                 sb.AppendLine(present.ToString());
             }
 
-            return sb.ToString().Trim();
+            return sb.ToString().TrimEnd();
         }
 
         public Bag(string color, int capacity)
