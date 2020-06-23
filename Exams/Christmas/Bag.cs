@@ -24,7 +24,7 @@
         {
             var sb = new StringBuilder();
             sb.AppendLine($"{Color} bag contains:");
-            foreach (var present in data.GroupBy(x => x.Gender))
+            foreach (var present in data)
             {
                 sb.AppendLine(present.ToString());
             }
