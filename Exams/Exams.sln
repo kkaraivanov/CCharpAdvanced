@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "17December2019", "17Decembe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Santa'sPresentFactory", "Santa'sPresentFactory\Santa'sPresentFactory.csproj", "{FD6ED50C-E358-4D36-87A1-BF868342BB38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentDelivery", "PresentDelivery\PresentDelivery.csproj", "{EB265B28-FAD9-4BE3-B828-13E867A9C11E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PresentDelivery", "PresentDelivery\PresentDelivery.csproj", "{EB265B28-FAD9-4BE3-B828-13E867A9C11E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Christmas", "Christmas\Christmas.csproj", "{C403930F-518B-4B23-8B03-8EA951925DE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{EB265B28-FAD9-4BE3-B828-13E867A9C11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB265B28-FAD9-4BE3-B828-13E867A9C11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB265B28-FAD9-4BE3-B828-13E867A9C11E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C403930F-518B-4B23-8B03-8EA951925DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C403930F-518B-4B23-8B03-8EA951925DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C403930F-518B-4B23-8B03-8EA951925DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C403930F-518B-4B23-8B03-8EA951925DE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{F731C729-50B1-4632-9D68-674BD0E18C98} = {FD66EBDA-750E-4B03-9BE8-851ACC9A87C9}
 		{FD6ED50C-E358-4D36-87A1-BF868342BB38} = {2F781414-D946-44A8-9DCE-2B70E4BBE9EC}
 		{EB265B28-FAD9-4BE3-B828-13E867A9C11E} = {2F781414-D946-44A8-9DCE-2B70E4BBE9EC}
+		{C403930F-518B-4B23-8B03-8EA951925DE1} = {2F781414-D946-44A8-9DCE-2B70E4BBE9EC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87164E95-BF4C-4449-85BD-BCD7ABEC04CA}
