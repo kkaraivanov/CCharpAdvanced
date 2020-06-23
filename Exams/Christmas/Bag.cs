@@ -14,19 +14,6 @@
 
         public int Count => data.Count;
 
-        public Bag(string color, int capacity)
-        {
-            Color = color;
-            Capacity = capacity;
-            data = new List<Present>();
-        }
-
-        public void Add(Present present)
-        {
-            if(Count < Capacity)
-                data.Add(present);
-        }
-
         public bool Remove(string name) => data.Remove(GetPresent(name));
 
         public Present GetHeaviestPresent() => data.OrderByDescending(x => x.Weight).FirstOrDefault();
@@ -43,6 +30,19 @@
             }
 
             return sb.ToString().Trim();
+        }
+
+        public Bag(string color, int capacity)
+        {
+            Color = color;
+            Capacity = capacity;
+            data = new List<Present>();
+        }
+
+        public void Add(Present present)
+        {
+            if(Count < Capacity)
+                data.Add(present);
         }
     }
 }
