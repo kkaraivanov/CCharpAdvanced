@@ -23,13 +23,13 @@
                 string command = Console.ReadLine();
                 if (command == "Christmas morning")
                     break;
-
-                SantaAction(command);
-                if(countOofPresents <= 0)
+                if (countOofPresents <= 0)
                 {
                     santaGoes = true;
                     break;
                 }
+
+                SantaAction(command);
             }
 
             int niceKitd = neighbourhood.CheckNiceKid();
@@ -115,7 +115,6 @@
                 {
                     position.Leav(neighbourhood);
                     countOofPresents--;
-                    niceKids++;
                 }
                 else if (neighbourhood.GetKidType(position) == 'V')
                 {
