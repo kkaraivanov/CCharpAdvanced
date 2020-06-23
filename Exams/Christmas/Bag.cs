@@ -8,10 +8,12 @@
     {
         private List<Present> data { get; set; }
 
-        private string Color { get;}
+        public string Color { get;}
 
-        private int Capacity { get;}
-        
+        public int Capacity { get;}
+
+        public int Count => data.Count;
+
         public Bag(string color, int capacity)
         {
             Color = color;
@@ -25,20 +27,11 @@
                 data.Add(present);
         }
 
-        public bool Remove(string name)
-        {
-            if (data.Any(x => x.Name != name))
-                return false;
-
-            data.Remove(GetPresent(name));
-            return true;
-        }
+        public bool Remove(string name) => data.Remove(GetPresent(name));
 
         public Present GetHeaviestPresent() => data.OrderByDescending(x => x.Weight).FirstOrDefault();
 
         public Present GetPresent(string name) => data.FirstOrDefault(x => x.Name == name);
-
-        public int Count => data.Count;
 
         public string Report()
         {
