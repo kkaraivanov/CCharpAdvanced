@@ -34,7 +34,7 @@
 
             int niceKitd = neighbourhood.CheckNiceKid();
             if (santaGoes)
-                Console.WriteLine("Santa ran out of presents.");
+                Console.WriteLine("Santa ran out of presents!");
 
             PrintNeighbourhood();
             if (niceKitd == 0)
@@ -149,7 +149,7 @@
             {
                 for (int j = 0; j < neighbourhood.GetLength(1); j++)
                 {
-                    Console.Write(neighbourhood[i, j]);
+                    Console.Write($"{neighbourhood[i, j]} ");
                 }
 
                 Console.WriteLine();
