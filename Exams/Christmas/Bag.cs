@@ -6,7 +6,7 @@
 
     public class Bag
     {
-        private List<Present> data { get; set; }
+        private readonly List<Present> data;
 
         public string Color { get;}
 
