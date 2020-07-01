@@ -15,7 +15,7 @@
             protected set
             {
                 if (value > 15)
-                    throw new ArgumentException($"Child's can not be able to have an age more than 15.");
+                    throw new ArgumentException($"Children should not be able to have an age more than 15.");
 
                 base.Age = value;
             }

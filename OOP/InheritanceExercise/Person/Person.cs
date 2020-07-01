@@ -18,7 +18,7 @@
             get => name;
             private set
             {
-                if(value.Length < 3)
+                if (value.Length < 3)
                     throw new ArgumentException("Name's length should not be less than 3 symbols!");
 
                 name = value;
@@ -30,16 +30,16 @@
             get => age;
             protected set
             {
-                if(value < 0)
-                    throw new ArgumentException($"The age of {Name} can not be able to have a negative value.");
-                    
+                if (value < 0)
+                    throw new ArgumentException("People should not be able to have a negative age");
+
                 age = value;
             }
         }
 
         public override string ToString()
         {
-            return $"Name: {Name}, Age: {Age}";
+            return String.Format("Name: {0}, Age: {1}", this.Name, this.Age);
         }
     }
 }
