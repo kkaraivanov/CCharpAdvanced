@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleInheritance", "Mult
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchicalInheritance", "HierarchicalInheritance\HierarchicalInheritance.csproj", "{CF1D9DDF-FEA5-49A7-91F3-D90A7F25DC92}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRandomList", "CustomRandomList\CustomRandomList.csproj", "{3FC9BD0F-A07D-4342-AC8B-E6E70CCD6D94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{379D99D2-8A49-4623-ADD2-A3F186B317BC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{CF1D9DDF-FEA5-49A7-91F3-D90A7F25DC92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF1D9DDF-FEA5-49A7-91F3-D90A7F25DC92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF1D9DDF-FEA5-49A7-91F3-D90A7F25DC92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FC9BD0F-A07D-4342-AC8B-E6E70CCD6D94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FC9BD0F-A07D-4342-AC8B-E6E70CCD6D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FC9BD0F-A07D-4342-AC8B-E6E70CCD6D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FC9BD0F-A07D-4342-AC8B-E6E70CCD6D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{379D99D2-8A49-4623-ADD2-A3F186B317BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{379D99D2-8A49-4623-ADD2-A3F186B317BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{379D99D2-8A49-4623-ADD2-A3F186B317BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{379D99D2-8A49-4623-ADD2-A3F186B317BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
