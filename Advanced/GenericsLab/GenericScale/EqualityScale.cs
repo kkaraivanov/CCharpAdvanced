@@ -1,0 +1,18 @@
+﻿namespace GenericScale
+{
+    using System;
+
+    public class EqualityScale<T>
+    {
+        private T left;
+        private T right;
+
+        public EqualityScale(T left, T right)
+        {
+            this.left = left;
+            this.right = right;
+        }
+
+        public bool AreEqual() => this.left.Equals(this.right);
+    }
+}
