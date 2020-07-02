@@ -16,30 +16,18 @@
         public string Name
         {
             get => name;
-            private set
-            {
-                if (value.Length < 3)
-                    throw new ArgumentException("Name's length should not be less than 3 symbols!");
-
-                name = value;
-            }
+            private set => name = value;
         }
 
-        public virtual int Age
+        public int Age
         {
             get => age;
-            protected set
-            {
-                if (value < 0)
-                    throw new ArgumentException("People should not be able to have a negative age");
-
-                age = value;
-            }
+            set => age = value;
         }
 
         public override string ToString()
         {
-            return String.Format("Name: {0}, Age: {1}", this.Name, this.Age);
+            return String.Format($"Name: {this.Name}, Age: {this.Age}");
         }
     }
 }
