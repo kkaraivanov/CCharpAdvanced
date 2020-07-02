@@ -4,34 +4,25 @@
     {
         private int horsePower;
         private double fuel;
-        private double defaultFuelConsumption;
+        private const double DefaultFuelConsumption = 1.25;
 
         public Vehicle(int horsePower, double fuel)
         {
             HorsePower = horsePower;
             Fuel = fuel;
-            FuelConsumption = 1.25;
         }
 
-        public double DefaultFuelConsumption
+        public virtual double FuelConsumption => DefaultFuelConsumption;
+
+        public double Fuel { get; set; }
+
+        public int HorsePower { get; set; }
+
+        public virtual void Drive(double kilometers)
         {
-            get => defaultFuelConsumption;
-            protected set { defaultFuelConsumption = value; }
-        }
-
-        protected virtual double FuelConsumption 
-        { 
-            get => DefaultFuelConsumption;
-            set { DefaultFuelConsumption = value; }
-        }
-
-        public double Fuel { get;}
-
-        public int HorsePower { get;}
-
-        protected virtual void Drive(double kilometers)
-        {
-
+            double fuelAfterDrive = Fuel - kilometers * FuelConsumption;
+            if (fuelAfterDrive >= 0)
+                Fuel = fuelAfterDrive;
         }
     }
 }
