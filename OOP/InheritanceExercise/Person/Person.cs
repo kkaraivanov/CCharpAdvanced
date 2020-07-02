@@ -19,10 +19,16 @@
             private set => name = value;
         }
 
-        public int Age
+        public virtual int Age
         {
             get => age;
-            set => age = value;
+            protected set
+            {
+                if (value < 0)
+                    this.age = Math.Abs(value); //throw new ArgumentException("People should not be able to have a negative age");
+
+                this.age = value;
+            }
         }
 
         public override string ToString()

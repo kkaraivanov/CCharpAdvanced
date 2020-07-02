@@ -7,6 +7,18 @@
         public Child(string name, int age) 
             : base(name, age)
         {
+            this.Age = age;
+        }
+
+        public override int Age
+        {
+            protected set
+            {
+                if (value > 15)
+                    base.Age = 0; //throw new ArgumentException("Children should not be able to have an age more than 15");
+
+                base.Age = value;
+            }
         }
     }
 }
