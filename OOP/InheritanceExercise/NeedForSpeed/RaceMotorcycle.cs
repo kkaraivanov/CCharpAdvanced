@@ -2,7 +2,7 @@
 {
     public class RaceMotorcycle : Motorcycle
     {
-        private double currentDefaultFuelConsumption = 10;
+        private double currentDefaultFuelConsumption = 8;
 
         public RaceMotorcycle(int horsePower, double fuel) 
             : base(horsePower, fuel)

@@ -14,9 +14,9 @@
 
         public virtual double FuelConsumption => DefaultFuelConsumption;
 
-        public double Fuel { get; set; }
+        public double Fuel { get => this.fuel; set => this.fuel = value; }
 
-        public int HorsePower { get; set; }
+        public int HorsePower { get => this.horsePower; set => this.horsePower = value; }
 
         public virtual void Drive(double kilometers)
         {
