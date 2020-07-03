@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using System.Threading.Channels;
 
     public class StartUp
     {
@@ -11,6 +12,7 @@
         {
             var lines = int.Parse(Console.ReadLine());
             var persons = new List<Person>();
+            Team team = new Team("SoftUni");
             for (int i = 0; i < lines; i++)
             {
                 var cmdArgs = Console.ReadLine().Split();
@@ -21,9 +23,14 @@
 
                 persons.Add(person);
             }
-            var parcentage = decimal.Parse(Console.ReadLine());
-            persons.ForEach(p => p.IncreaseSalary(parcentage));
-            persons.ForEach(p => Console.WriteLine(p.ToString()));
+
+            foreach (Person person in persons)
+            {
+                team.AddPlayer(person);
+            }
+
+            Console.WriteLine($"Reserve team has {team.FirstTeam.Count} players.");
+            Console.WriteLine($"Reserve team has {team.ReserveTeam.Count} players.");
         }
     }
 }
