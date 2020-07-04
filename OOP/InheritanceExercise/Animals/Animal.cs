@@ -30,7 +30,7 @@
             get => age;
             private set
             {
-                if (ValidateStringInput(value.ToString()) && value < 0)
+                if (ValidateStringInput(value.ToString()) || value < 0)
                     throw new ArgumentException("Invalid input!");
 
                 age = value;
