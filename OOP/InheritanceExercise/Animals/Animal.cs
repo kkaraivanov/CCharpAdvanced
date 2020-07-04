@@ -11,6 +11,8 @@
 
         private bool ValidateStringInput(string s) => string.IsNullOrWhiteSpace(s);
 
+        private bool ValidateGenderInput(string s) => (s == "Female" ? true : false) || (s == "Male" ? true : false);
+
         public string Name
         {
             get => name;
@@ -40,7 +42,7 @@
             get => gender;
             private set
             {
-                if (ValidateStringInput(value))
+                if (ValidateStringInput(value) || !ValidateGenderInput(value))
                     throw new ArgumentException("Invalid input!");
 
                 gender = value;
