@@ -1,6 +1,7 @@
-﻿namespace ShoppingSpree
+﻿namespace ShoppingSpree.Models
 {
     using System;
+    using Common;
 
     public class Product
     {

@@ -8,7 +8,7 @@
         {
             try
             {
-                var engine = new StartUpEngine();
+                var engine = new Engine();
                 engine.Run();
             }
             catch (ArgumentException ae)

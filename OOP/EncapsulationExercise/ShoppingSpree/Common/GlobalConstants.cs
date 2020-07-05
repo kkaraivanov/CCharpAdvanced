@@ -1,4 +1,4 @@
-﻿namespace ShoppingSpree
+﻿namespace ShoppingSpree.Common
 {
     public static class GlobalConstants
     {
