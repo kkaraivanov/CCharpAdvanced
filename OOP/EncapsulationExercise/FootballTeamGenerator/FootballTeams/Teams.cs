@@ -11,14 +11,25 @@
     {
         private List<Team> teams;
 
-        public Teams()
+        private Stats NewStats(string[] inputArr)
         {
-            teams = new List<Team>();
+            int endurance = int.Parse(inputArr[0]);
+            int sprint = int.Parse(inputArr[1]);
+            int dribble = int.Parse(inputArr[2]);
+            int passing = int.Parse(inputArr[3]);
+            int shooting = int.Parse(inputArr[4]);
+
+            return new Stats(endurance, sprint, dribble, passing, shooting);
         }
 
         private string[] ReadLine => Console.ReadLine()
             ?.Split(';', StringSplitOptions.None)
             .ToArray();
+
+        public Teams()
+        {
+            teams = new List<Team>();
+        }
 
         public void Make()
         {
@@ -75,17 +86,6 @@
 
                 commands = ReadLine;
             }
-        }
-
-        private Stats NewStats(string[] inputArr)
-        {
-            int endurance = int.Parse(inputArr[0]);
-            int sprint = int.Parse(inputArr[1]);
-            int dribble = int.Parse(inputArr[2]);
-            int passing = int.Parse(inputArr[3]);
-            int shooting = int.Parse(inputArr[4]);
-
-            return new Stats(endurance, sprint, dribble, passing, shooting);
         }
     }
 }

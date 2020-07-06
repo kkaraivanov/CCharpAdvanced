@@ -11,6 +11,8 @@
         private readonly List<Player> players;
         private string name;
 
+        private int AveragePlayersSkill => (int)Math.Round(players.Sum(x => x.Skill) / players.Count);
+
         public string Name 
         {
             get => name;
@@ -21,8 +23,8 @@
                 name = value;
             }
         }
-
-        public int Rating => players.Count == 0 ? 0 : (int)Math.Round(players.Sum(x => x.Skill) / players.Count);
+        
+        public int Rating => players.Count == 0 ? 0 : AveragePlayersSkill;
 
         private Team()
         {
