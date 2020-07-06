@@ -13,7 +13,6 @@
             private set
             {
                 value.IsNullOrWhiteSpace();
-
                 name = value;
             }
         }

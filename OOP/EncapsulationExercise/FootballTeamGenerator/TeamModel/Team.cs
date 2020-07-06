@@ -19,11 +19,10 @@
             private set
             {
                 value.IsNullOrWhiteSpace();
-
                 name = value;
             }
         }
-        
+
         public int Rating => players.Count == 0 ? 0 : AveragePlayersSkill;
 
         private Team()
@@ -42,8 +41,7 @@
         public void RemovePlayer(string playerName)
         {
             var player = players.FirstOrDefault(p => p.Name == playerName);
-            player.IsValidPlayer(playerName,Name);
-
+            player.IsValidPlayer(playerName, Name);
             players.Remove(player);
         }
 

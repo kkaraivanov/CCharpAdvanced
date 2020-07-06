@@ -1,5 +1,6 @@
 ﻿namespace FootballTeamGenerator.PlayerModel
 {
+    using System;
     using Common;
 
     public class Stats
@@ -15,8 +16,7 @@
             get => endurance;
             private set
             {
-                value.IsValidState(nameof(this.Endurance));
-
+                ValidateStat(value, nameof(this.Endurance));
                 endurance = value;
             }
         }
@@ -26,8 +26,7 @@
             get => sprint;
             private set
             {
-                value.IsValidState(nameof(this.Sprint));
-
+                ValidateStat(value, nameof(this.Sprint));
                 sprint = value;
             }
         }
@@ -37,8 +36,7 @@
             get => dribble;
             private set
             {
-                value.IsValidState(nameof(this.Dribble));
-
+                ValidateStat(value, nameof(this.Dribble));
                 dribble = value;
             }
         }
@@ -48,8 +46,7 @@
             get => passing;
             private set
             {
-                value.IsValidState(nameof(this.Passing));
-
+                ValidateStat(value, nameof(this.Passing));
                 passing = value;
             }
         }
@@ -59,13 +56,10 @@
             get => shooting;
             private set
             {
-                value.IsValidState(nameof(this.Shooting));
-
+                ValidateStat(value, nameof(this.Shooting));
                 shooting = value;
             }
         }
-
-        public double AverageStat => (Endurance + Sprint + Dribble + Passing + Shooting) / GlobalConstants.STAT_DELIMITER;
 
         public Stats(int endurance, int sprint, int dribble, int passing, int shooting)
         {
@@ -74,6 +68,15 @@
             Dribble = dribble;
             Passing = passing;
             Shooting = shooting;
+        }
+
+        public double AverageStat => (Endurance + Sprint + Dribble + Passing + Shooting) / GlobalConstants.STAT_DELIMITER;
+
+        private void ValidateStat(int value, string stateName)
+        {
+            if (value < GlobalConstants.STATE_MIN_VALUE || value > GlobalConstants.STATE_MAX_VALUE)
+                throw new InvalidOperationException(string.Format(GlobalConstants.InvalidStatExceptionMessage,
+                    stateName, GlobalConstants.STATE_MIN_VALUE, GlobalConstants.STATE_MAX_VALUE));
         }
     }
 }

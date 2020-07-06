@@ -1,4 +1,5 @@
 ﻿namespace FootballTeamGenerator.FootballTeams
+
 {
     using System;
     using System.Collections.Generic;
@@ -39,10 +40,10 @@
                 string teamName = null;
                 string playerName = null;
 
-                if(commands.Length > 1)
+                if (commands.Length > 1)
                     teamName = commands[1];
 
-                if(commands.Length > 2)
+                if (commands.Length > 2)
                     playerName = commands[2];
 
                 try
