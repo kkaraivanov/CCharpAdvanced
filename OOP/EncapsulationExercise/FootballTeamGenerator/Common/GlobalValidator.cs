@@ -8,9 +8,6 @@
 
     public static class GlobalValidator
     {
-        private const int STATE_MIN_VALUE = 0;
-        private const int STATE_MAX_VALUE = 100;
-
         public static void IsValidTeamName(this string teamName, List<Team> teams)
         {
             if (!teams.Any(x => x.Name == teamName))
@@ -27,9 +24,9 @@
 
         public static void IsValidState(this int value, string stateName)
         {
-            if (value < STATE_MIN_VALUE || value > STATE_MAX_VALUE)
+            if (value < GlobalConstants.STATE_MAX_VALUE || value > GlobalConstants.STATE_MAX_VALUE)
                 throw new InvalidOperationException(string.Format(
-                    GlobalConstants.InvalidStatExceptionMessage,stateName, STATE_MIN_VALUE, STATE_MAX_VALUE));
+                    GlobalConstants.InvalidStatExceptionMessage,stateName, GlobalConstants.STATE_MIN_VALUE, GlobalConstants.STATE_MAX_VALUE));
         }
 
         public static void IsNullOrWhiteSpace(this string value)

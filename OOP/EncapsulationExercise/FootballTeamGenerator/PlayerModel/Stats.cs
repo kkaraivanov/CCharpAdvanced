@@ -4,7 +4,6 @@
 
     public class Stats
     {
-        private const double STAT_DELIMITER = 5.0;
         private int endurance;
         private int sprint;
         private int dribble;
@@ -66,7 +65,7 @@
             }
         }
 
-        public double AverageStat => (Endurance + Sprint + Dribble + Passing + Shooting) / STAT_DELIMITER;
+        public double AverageStat => (Endurance + Sprint + Dribble + Passing + Shooting) / GlobalConstants.STAT_DELIMITER;
 
         public Stats(int endurance, int sprint, int dribble, int passing, int shooting)
         {

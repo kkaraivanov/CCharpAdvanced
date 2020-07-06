@@ -1,6 +1,5 @@
 ﻿namespace FootballTeamGenerator.PlayerModel
 {
-    using System;
     using Common;
 
     public class Player
