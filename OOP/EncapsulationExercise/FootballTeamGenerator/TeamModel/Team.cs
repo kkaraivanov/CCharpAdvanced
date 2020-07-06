@@ -16,8 +16,7 @@
             get => name;
             private set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new InvalidOperationException(GlobalConstants.InvalidNameExceptionMessage);
+                value.IsNullOrWhiteSpace();
 
                 name = value;
             }
@@ -41,8 +40,7 @@
         public void RemovePlayer(string playerName)
         {
             var player = players.FirstOrDefault(p => p.Name == playerName);
-            if(player == null)
-                throw new InvalidOperationException(string.Format(GlobalConstants.InvalidRemoveMissingPlayerMessage, playerName, Name));
+            player.IsValidPlayer(playerName,Name);
 
             players.Remove(player);
         }

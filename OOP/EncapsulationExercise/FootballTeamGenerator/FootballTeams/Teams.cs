@@ -25,6 +25,15 @@
             var commands = ReadLine;
             while (!commands.Contains("END"))
             {
+                string teamName = null;
+                string playerName = null;
+
+                if(commands.Length > 1)
+                    teamName = commands[1];
+
+                if(commands.Length > 2)
+                    playerName = commands[2];
+
                 try
                 {
                     if (commands[0] == "Team")
@@ -35,9 +44,7 @@
 
                     if (commands[0] == "Add")
                     {
-                        string teamName = commands[1];
-                        string playerName = commands[2];
-                        ValidateTeam(teamName);
+                        teamName.IsValidTeamName(teams);
 
                         var stats = NewStats(commands.Skip(3).ToArray());
                         var player = new Player(playerName, stats);
@@ -47,9 +54,7 @@
 
                     if (commands[0] == "Remove")
                     {
-                        string teamName = commands[1];
-                        string playerName = commands[2];
-                        ValidateTeam(teamName);
+                        teamName.IsValidTeamName(teams);
 
                         var team = teams.First(x => x.Name == teamName);
                         team.RemovePlayer(playerName);
@@ -57,8 +62,7 @@
 
                     if (commands[0] == "Rating")
                     {
-                        string teamName = commands[1];
-                        ValidateTeam(teamName);
+                        teamName.IsValidTeamName(teams);
 
                         var team = teams.First(x => x.Name == teamName);
                         Console.WriteLine(team);
@@ -82,12 +86,6 @@
             int shooting = int.Parse(inputArr[4]);
 
             return new Stats(endurance, sprint, dribble, passing, shooting);
-        }
-
-        private void ValidateTeam(string teamName)
-        {
-            if (!teams.Any(x => x.Name == teamName))
-                throw new InvalidOperationException(string.Format(GlobalConstants.InvalidCommandMissingTeamMessage, teamName));
         }
     }
 }

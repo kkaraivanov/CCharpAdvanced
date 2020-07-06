@@ -12,9 +12,9 @@
                 var teams = new Teams();
                 teams.Make();
             }
-            catch (InvalidOperationException ioe)
+            catch (ArgumentException ae)
             {
-                Console.WriteLine(ioe.Message);
+                Console.WriteLine(ae.Message);
             }
         }
     }

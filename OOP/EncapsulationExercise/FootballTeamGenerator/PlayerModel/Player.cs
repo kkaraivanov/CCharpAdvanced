@@ -13,8 +13,7 @@
             get => name;
             private set
             {
-                if (string.IsNullOrWhiteSpace(value))
-                    throw new InvalidOperationException(GlobalConstants.InvalidNameExceptionMessage);
+                value.IsNullOrWhiteSpace();
 
                 name = value;
             }
