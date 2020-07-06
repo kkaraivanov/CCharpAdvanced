@@ -27,5 +27,12 @@
             if (string.IsNullOrWhiteSpace(value))
                 throw new InvalidOperationException(GlobalConstants.InvalidNameExceptionMessage);
         }
+
+        public static void IsValidState(this int value, string stateName)
+        {
+            if (value < GlobalConstants.STATE_MAX_VALUE || value > GlobalConstants.STATE_MAX_VALUE)
+                throw new InvalidOperationException(string.Format(
+                    GlobalConstants.InvalidStatExceptionMessage, stateName, GlobalConstants.STATE_MIN_VALUE, GlobalConstants.STATE_MAX_VALUE));
+        }
     }
 }
