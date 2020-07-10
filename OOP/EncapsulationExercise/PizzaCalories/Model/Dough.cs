@@ -9,7 +9,7 @@
         private const int BASE_CALORIES = 2;
         private string flourType;
         private string bakingTechnique;
-        private int weight;
+        private double weight;
 
         private string FlourType
         {
@@ -31,7 +31,7 @@
             }
         }
 
-        private int Weight
+        private double Weight
         {
             set
             {
@@ -43,11 +43,8 @@
 
         public double Calories => CaloriesCalculate();
 
-        public Dough(string flourType, string bakingTechnique, int weight)
+        public Dough(string flourType, string bakingTechnique, double weight)
         {
-            flourType = char.ToUpper(flourType[0]) + flourType.Substring(1);
-            bakingTechnique = char.ToUpper(bakingTechnique[0]) + bakingTechnique.Substring(1);
-
             FlourType = flourType;
             BakingTechnique = bakingTechnique;
             Weight = weight;
@@ -55,17 +52,8 @@
 
         private double CaloriesCalculate()
         {
-            double flourType = this.flourType switch
-            {
-                "White" => ModifierConstant.White,
-                "Wholegrain" => ModifierConstant.Wholegrain
-            };
-            double bakingTechnique = this.bakingTechnique switch
-            {
-                "Crispy" => ModifierConstant.Crispy,
-                "Chewy" => ModifierConstant.Chewy,
-                "Homemade" => ModifierConstant.Homemade
-            };
+            double flourType = Modifiers.Modifier[this.flourType.ToLower()];
+            double bakingTechnique = Modifiers.Modifier[this.bakingTechnique.ToLower()];
 
             return (BASE_CALORIES * weight) * bakingTechnique * flourType;
         }

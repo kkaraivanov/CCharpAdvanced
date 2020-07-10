@@ -10,15 +10,6 @@
         private Dough dough;
         private List<Topping> toppings;
 
-        private List<Topping> Toppings
-        {
-            set
-            {
-                value.InvalidPizzaToppingCountMessage();
-                toppings = value;
-            }
-        }
-
         public string Name
         {
             get => name;
@@ -30,31 +21,25 @@
             }
         }
 
-        public double Calories => CaloriesCalculate();
+        public double TotalCalories => dough.Calories + toppings.Sum(x => x.Calories);
 
         private Pizza()
         {
             toppings = new List<Topping>();
         }
 
-        public Pizza(string name, Dough dough, List<Topping> toppings)
+        public Pizza(string name, Dough dough)
+            : this()
         {
             Name = name;
             this.dough = dough;
-            Toppings = toppings;
         }
 
-        private double CaloriesCalculate()
+        public void AddTopping(Topping topping)
         {
-            var doughCalorie = dough.Calories;
-            var toppingCalorie = toppings.Sum(x => x.Calories);
+            toppings.InvalidPizzaToppingCountMessage();
 
-            return doughCalorie + toppingCalorie;
-        }
-
-        public override string ToString()
-        {
-            return $"{Name} - {Calories:f2} Calories.";
+            toppings.Add(topping);
         }
     }
 }

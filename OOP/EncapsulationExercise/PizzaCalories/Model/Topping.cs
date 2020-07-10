@@ -8,7 +8,7 @@
         private const int MAX_WEIGHT_VALUE = 50;
         private const int BASE_CALORIES = 2;
         private string meatType;
-        private int weight;
+        private double weight;
 
         private string MeatType
         {
@@ -20,7 +20,7 @@
             }
         }
 
-        private int Weight
+        private double Weight
         {
             set
             { 
@@ -32,23 +32,15 @@
 
         public double Calories => CaloriesCalculate();
 
-        public Topping(string meatType, int weight)
+        public Topping(string meatType, double weight)
         {
-            meatType = char.ToUpper(meatType[0]) + meatType.Substring(1);
-
             MeatType = meatType;
             Weight = weight;
         }
 
         private double CaloriesCalculate()
         {
-            double meatType = this.meatType switch
-            {
-                "Meat" => ModifierConstant.Meat,
-                "Veggies" => ModifierConstant.Veggies,
-                "Cheese" => ModifierConstant.Cheese,
-                "Sauce" => ModifierConstant.Sauce
-            };
+            double meatType = Modifiers.Modifier[this.meatType.ToLower()];
 
             return (BASE_CALORIES * weight) * meatType;
         }

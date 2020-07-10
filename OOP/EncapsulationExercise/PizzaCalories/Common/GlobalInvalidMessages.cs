@@ -4,39 +4,36 @@
     using System.Collections.Generic;
     using Model;
 
-    public static class GlobalExeptionMessage
+    public static class GlobalInvalidMessages
     {
         public static void InvalidDoughTypeMessage(this string value)
         {
-            Modifiers modifiers;
-            if (!Enum.TryParse(value, out modifiers))
+            if (!Modifiers.Modifier.ContainsKey(value.ToLower()))
                 throw new ArgumentException("Invalid type of dough.");
         }
 
         public static void InvalidToppingTypeMessage(this string value)
         {
-            Modifiers modifiers;
-            if (!Enum.TryParse(value, out modifiers))
-                throw new ArgumentException(string.Format("Cannot place {0} on top of your pizza.", value));
+            if (!Modifiers.Modifier.ContainsKey(value.ToLower()))
+                throw new ArgumentException($"Cannot place {value} on top of your pizza.");
         }
 
-        public static void InvalidDoughWeightMessage(this int value, int min, int max)
+        public static void InvalidDoughWeightMessage(this double value, int min, int max)
         {
             if(value < min || max < value)
                 throw new ArgumentException("Dough weight should be in the range [1..200].");
         }
 
-        public static void InvalidToppingWeightMessage(this int value, int min, int max, string meatType)
+        public static void InvalidToppingWeightMessage(this double value, int min, int max, string meatType)
         {
             if (value < min || max < value)
-                throw new ArgumentException(string.Format("{0} weight should be in the range[1..50].", meatType));
+                throw new ArgumentException($"{meatType} weight should be in the range[1..50].");
         }
 
         public static void InvalidPizzaNameMessage(this string value)
         {
-            bool checkLength = value.Length >= 1 && value.Length <= 15;
-            if(string.IsNullOrWhiteSpace(value) || !checkLength)
-                throw new ArgumentException(string.Format("Pizza {0} should be between 1 and 15 symbols.", value));
+            if(value.Length < 1 || 15 < value.Length)
+                throw new ArgumentException("Pizza name should be between 1 and 15 symbols.");
         }
 
         public static void InvalidPizzaToppingCountMessage(this List<Topping> value)
