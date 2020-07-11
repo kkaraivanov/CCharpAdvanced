@@ -2,24 +2,17 @@
 {
     using Interface;
 
-    public class Private: Soldier
+    public class Private: Soldier, IPrivate
     {
-        public override int Id { get; set; }
-
-        public override string FirstName { get; set; }
-
-        public override string LastName { get; set; }
 
         public decimal Salary { get; set; }
 
         public Private(int id, string firstName, string lastName, decimal salary) 
-            : base(id, firstName, lastName, salary)
+            : base(id, firstName, lastName)
         {
+            Salary = salary;
         }
 
-        public override string ToString()
-        {
-            return base.DisplayInfo();
-        }
+        public override string ToString() => $"{base.ToString()} Salary: {Salary:F2}";
     }
 }

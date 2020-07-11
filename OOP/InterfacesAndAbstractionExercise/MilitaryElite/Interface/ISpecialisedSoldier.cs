@@ -2,7 +2,7 @@
 {
     using Enumerator;
 
-    public interface ISpecialisedSoldier
+    public interface ISpecialisedSoldier : IPrivate
     {
         public string Corp { get;}
     }

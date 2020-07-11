@@ -2,7 +2,7 @@
 {
     public enum Missions
     {
-        inprogress,
-        finished
+        inProgress,
+        Finished
     }
 }

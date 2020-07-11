@@ -1,6 +1,8 @@
 ﻿namespace MilitaryElite.Model
 {
-    public class Repair
+    using Interface;
+
+    public class Repair : IRepair
     {
         public string Name { get;}
 

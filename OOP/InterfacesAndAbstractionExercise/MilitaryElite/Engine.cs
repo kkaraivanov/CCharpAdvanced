@@ -13,7 +13,7 @@
         private List<Private> privateSolgers;
         private List<Mission> missions;
 
-        public IList<ISoldier> Solgers => solgers.AsReadOnly();
+        public List<ISoldier> Solgers => solgers;
 
         public Engine()
         {
@@ -33,11 +33,9 @@
                     AddLieutenantGeneral(line.Skip(1).ToArray());
                     break;
                 case "Engineer":
-                    if (CorpIsValid(line[5]))
                         AddEngineer(line.Skip(1).ToArray());
                     break;
                 case "Commando":
-                    if(CorpIsValid(line[5]))
                         AddCommando(line.Skip(1).ToArray());
                     break;
                 case "Spy":
@@ -77,41 +75,55 @@
         
         private void AddEngineer(string[] arr)
         {
-            var engineer = new Engineer(
-                int.Parse(arr[0]),
-                arr[1],
-                arr[2],
-                decimal.Parse(arr[3]),
-                arr[4],
-                Repairs(arr.Skip(5).ToArray()));
-
-            solgers.Add(engineer);
-        }
-        
-        private void AddCommando(string[] arr)
-        {
-            Commando comando = null;
-            if (arr.Length > 5)
+            try
             {
-                comando = new Commando(
+                var engineer = new Engineer(
                     int.Parse(arr[0]),
                     arr[1],
                     arr[2],
                     decimal.Parse(arr[3]),
                     arr[4],
-                    MakeMissionArray(arr.Skip(5).ToArray()));
-            }
-            else
-            {
-                comando = new Commando(
-                    int.Parse(arr[0]),
-                    arr[1],
-                    arr[2],
-                    decimal.Parse(arr[3]),
-                    arr[4]);
-            }
+                    Repairs(arr.Skip(5).ToArray()));
 
-            solgers.Add(comando);
+                solgers.Add(engineer);
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+        
+        private void AddCommando(string[] arr)
+        {
+            try
+            {
+                Commando comando = null;
+                if (arr.Length > 5)
+                {
+                    comando = new Commando(
+                        int.Parse(arr[0]),
+                        arr[1],
+                        arr[2],
+                        decimal.Parse(arr[3]),
+                        arr[4],
+                        MakeMissionArray(arr.Skip(5).ToArray()));
+                }
+                else
+                {
+                    comando = new Commando(
+                        int.Parse(arr[0]),
+                        arr[1],
+                        arr[2],
+                        decimal.Parse(arr[3]),
+                        arr[4]);
+                }
+
+                solgers.Add(comando);
+            }
+            catch (Exception e)
+            {
+                
+            }
         }
         
         private void AddSpy(string[] arr)
@@ -168,7 +180,7 @@
         private bool CorpIsValid(string corp)
         {
             Corps corps;
-            if (Enum.TryParse(corp.ToLower(), out corps))
+            if (Enum.TryParse(corp, out corps))
                 return true;
 
             return false;
@@ -177,7 +189,7 @@
         private bool MissionIsValidState(string state)
         {
             Missions missions;
-            if (Enum.TryParse(state.ToLower(), out missions))
+            if (Enum.TryParse(state, out missions))
                 return true;
 
             return false;

@@ -1,30 +1,28 @@
 ﻿namespace MilitaryElite.Model
 {
     using System;
+    using System.Text;
     using Interface;
 
-    public class Spy : ISoldier
+    public class Spy : Soldier, ISpy
     {
-        public int Id { get; set; }
 
-        public string FirstName { get; set; }
+        public int CodeNumber { get; private set; }
 
-        public string LastName { get; set; }
-
-        public int CodeNumber { get; set; }
-
-        public Spy(int id, string firstName, string lastName, int codeNumber)
+        public Spy(int id, string firstName, string lastName, int code)
+            : base(id, firstName, lastName)
         {
-            Id = id;
-            FirstName = firstName;
-            LastName = lastName;
-            CodeNumber = codeNumber;
+            CodeNumber = code;
         }
 
         public override string ToString()
         {
-            return $"Name: {FirstName} {LastName} Id: {Id}{Environment.NewLine}" +
-                   $"Code Number: {CodeNumber}";
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString())
+                .Append($"Code Number: {CodeNumber}");
+
+            return sb.ToString();
         }
+
     }
 }

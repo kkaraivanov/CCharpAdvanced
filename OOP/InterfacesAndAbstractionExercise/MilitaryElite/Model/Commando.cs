@@ -1,28 +1,20 @@
 ﻿namespace MilitaryElite.Model
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using System.Text;
     using Interface;
 
     public class Commando : SpecialisedSoldier, ICommando
     {
         private List<Mission> missions;
 
-        public override int Id { get; set; }
-
-        public override string FirstName { get; set; }
-
-        public override string LastName { get; set; }
-
         public override string Corp { get; }
 
-        public IReadOnlyCollection<Mission> Missions => missions.AsReadOnly();
+        public IReadOnlyCollection<Mission> Missions => missions;
 
         public Commando(int id, string firstName, string lastName, decimal salary, string corp)
             : base(id, firstName, lastName, salary, corp)
         {
-            Corp = corp;
             this.missions = new List<Mission>();
         }
 
@@ -40,20 +32,15 @@
             }
         }
 
-        protected override string DisplayInfo()
-        {
-            return $"{base.DisplayInfo()}{Environment.NewLine}" +
-                   $"Missions:";
-        }
-
         public override string ToString()
         {
-            string result = DisplayInfo();
-            if (missions.Count > 0)
-                result += $"{Environment.NewLine}" +
-                          $"{string.Join(Environment.NewLine, missions.Where(x => x.State.ToLower() == "inprogress").Select(x => $"  {x.ToString()}"))}";
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString())
+                .AppendLine("Missions:");
 
-            return result;
+            missions.ForEach(m => sb.AppendLine($"  {m.ToString()}"));
+
+            return sb.ToString().TrimEnd();
         }
     }
 }

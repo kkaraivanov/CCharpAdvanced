@@ -1,23 +1,22 @@
 ﻿namespace MilitaryElite.Model
 {
-    using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
+    using System.Text;
     using Interface;
 
-    public class LieutenantGeneral : Soldier, ILieutenantGeneral
+    public class LieutenantGeneral : Private, ILieutenantGeneral
     {
         private List<Private> solgers;
-        public override int Id { get; set; }
 
-        public override string FirstName { get; set; }
+        public int Id { get; set; }
 
-        public override string LastName { get; set; }
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
 
         public decimal Salary { get; set; }
 
-        public IReadOnlyCollection<Private> Solgers => solgers.AsReadOnly();
+        public IReadOnlyCollection<Private> Solgers => solgers;
 
         public LieutenantGeneral(int id, string firstName, string lastName, decimal salary, Private[] solgers) 
             : base(id, firstName, lastName, salary)
@@ -34,20 +33,18 @@
             }
         }
 
-        protected override string DisplayInfo()
-        {
-            return $"{base.DisplayInfo()}{Environment.NewLine}" +
-                   $"Privates:";
-        }
-
         public override string ToString()
         {
-            string result = DisplayInfo();
-            if(solgers.Count > 0)
-                result += $"{Environment.NewLine}" +
-                          $"{string.Join(Environment.NewLine, Solgers.Select(x => $"   {x.ToString()}"))}";
+            var sb = new StringBuilder();
+            sb.AppendLine(base.ToString())
+                .AppendLine("Privates:");
 
-            return result;
+            foreach (var current in solgers)
+            {
+                sb.AppendLine("  " + current.ToString());
+            }
+
+            return sb.ToString().TrimEnd();
         }
     }
 }
