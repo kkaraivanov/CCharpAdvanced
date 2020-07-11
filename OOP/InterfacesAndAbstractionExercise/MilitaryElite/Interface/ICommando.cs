@@ -5,6 +5,6 @@
 
     public interface ICommando
     {
-        public IList<Mission> Missions { get; }
+        public IReadOnlyCollection<Mission> Missions { get; }
     }
 }

@@ -17,7 +17,7 @@
 
         public decimal Salary { get; set; }
 
-        public IList<Private> Solgers => solgers.AsReadOnly();
+        public IReadOnlyCollection<Private> Solgers => solgers.AsReadOnly();
 
         public LieutenantGeneral(int id, string firstName, string lastName, decimal salary, Private[] solgers) 
             : base(id, firstName, lastName, salary)

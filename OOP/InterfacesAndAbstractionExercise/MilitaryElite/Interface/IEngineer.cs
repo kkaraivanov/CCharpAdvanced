@@ -5,6 +5,6 @@
 
     public interface IEngineer
     {
-        public IList<Repair> Repairs { get; }
+        public IReadOnlyCollection<Repair> Repairs { get; }
     }
 }

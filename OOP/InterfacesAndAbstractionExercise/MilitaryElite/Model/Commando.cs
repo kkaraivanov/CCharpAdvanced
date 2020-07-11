@@ -17,7 +17,7 @@
 
         public override string Corp { get; }
 
-        public IList<Mission> Missions { get; }
+        public IReadOnlyCollection<Mission> Missions => missions.AsReadOnly();
 
         public Commando(int id, string firstName, string lastName, decimal salary, string corp)
             : base(id, firstName, lastName, salary, corp)

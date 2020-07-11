@@ -5,7 +5,7 @@
 
     public interface ILieutenantGeneral
     {
-        public IList<Private> Solgers { get; }
+        public IReadOnlyCollection<Private> Solgers { get; }
 
     }
 }

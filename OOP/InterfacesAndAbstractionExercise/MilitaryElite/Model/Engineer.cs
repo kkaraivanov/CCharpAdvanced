@@ -17,7 +17,7 @@
 
         public override string Corp { get; }
 
-        public IList<Repair> Repairs => repairs.AsReadOnly();
+        public IReadOnlyCollection<Repair> Repairs => repairs.AsReadOnly();
 
         public Engineer(int id, string firstName, string lastName, decimal salary, string corp, Repair[] repears) 
             : base(id, firstName, lastName, salary, corp)
