@@ -3,23 +3,20 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Enumerator;
-    using Interface;
+    using System.Text;
     using Model;
 
     public class Engine
     {
-        private List<ISoldier> solgers;
+        private List<Soldier> solgers;
         private List<Private> privateSolgers;
-        private List<Mission> missions;
 
-        public List<ISoldier> Solgers => solgers;
+        public List<Soldier> Solgers => solgers;
 
         public Engine()
         {
-            solgers = new List<ISoldier>();
+            solgers = new List<Soldier>();
             privateSolgers = new List<Private>();
-            missions = new List<Mission>();
         }
 
         public void AddNewLine(string[] line)
@@ -33,10 +30,10 @@
                     AddLieutenantGeneral(line.Skip(1).ToArray());
                     break;
                 case "Engineer":
-                        AddEngineer(line.Skip(1).ToArray());
+                    AddEngineer(line.Skip(1).ToArray());
                     break;
                 case "Commando":
-                        AddCommando(line.Skip(1).ToArray());
+                    AddCommando(line.Skip(1).ToArray());
                     break;
                 case "Spy":
                     AddSpy(line.Skip(1).ToArray());
@@ -44,23 +41,18 @@
             }
         }
 
-        public void CompleteMission(string missionName)
-        {
-            missions.First(x => x.Name == missionName && x.State.ToLower() != "finished").State = "Finished";
-        }
-
         private void AddPrivateSolger(string[] arr)
         {
             var solger = new Private(
-                int.Parse(arr[0]), 
-                arr[1], 
-                arr[2], 
+                int.Parse(arr[0]),
+                arr[1],
+                arr[2],
                 decimal.Parse(arr[3]));
 
             solgers.Add(solger);
             privateSolgers.Add(solger);
         }
-        
+
         private void AddLieutenantGeneral(string[] arr)
         {
             var general = new LieutenantGeneral(
@@ -72,7 +64,7 @@
 
             solgers.Add(general);
         }
-        
+
         private void AddEngineer(string[] arr)
         {
             try
@@ -89,10 +81,10 @@
             }
             catch (Exception e)
             {
-                
+
             }
         }
-        
+
         private void AddCommando(string[] arr)
         {
             try
@@ -122,16 +114,16 @@
             }
             catch (Exception e)
             {
-                
+
             }
         }
-        
+
         private void AddSpy(string[] arr)
         {
             var solger = new Spy(
-                int.Parse(arr[0]), 
-                arr[1], 
-                arr[2], 
+                int.Parse(arr[0]),
+                arr[1],
+                arr[2],
                 int.Parse(arr[3]));
 
             solgers.Add(solger);
@@ -151,15 +143,16 @@
         private Mission[] MakeMissionArray(params string[] missions)
         {
             var currentMisions = new List<Mission>();
-            for (int i = 0; i < missions.Length; i++)
+            for (int i = 0; i < missions.Length; i += 2)
             {
-                if (MissionIsValidState(missions[i + 1]))
+                try
                 {
-                    this.missions.Add(new Mission(missions[i], missions[i + 1]));
                     currentMisions.Add(new Mission(missions[i], missions[i + 1]));
                 }
+                catch (Exception e)
+                {
 
-                i++;
+                }
             }
 
             return currentMisions.ToArray();
@@ -168,31 +161,20 @@
         private Repair[] Repairs(params string[] repair)
         {
             var repairs = new List<Repair>();
-            for (int i = 0; i < repair.Length; i++)
+            for (int i = 0; i < repair.Length; i += 2)
             {
                 repairs.Add(new Repair(repair[i], int.Parse(repair[i + 1])));
-                i++;
             }
 
             return repairs.ToArray();
         }
 
-        private bool CorpIsValid(string corp)
+        public override string ToString()
         {
-            Corps corps;
-            if (Enum.TryParse(corp, out corps))
-                return true;
+            var sb = new StringBuilder();
+            solgers.ForEach(x => sb.AppendLine(x.ToString()));
 
-            return false;
-        }
-
-        private bool MissionIsValidState(string state)
-        {
-            Missions missions;
-            if (Enum.TryParse(state, out missions))
-                return true;
-
-            return false;
+            return sb.ToString().TrimEnd();
         }
     }
 }

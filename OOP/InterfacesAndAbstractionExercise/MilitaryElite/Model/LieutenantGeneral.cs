@@ -8,14 +8,6 @@
     {
         private List<Private> solgers;
 
-        public int Id { get; set; }
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public decimal Salary { get; set; }
-
         public IReadOnlyCollection<Private> Solgers => solgers;
 
         public LieutenantGeneral(int id, string firstName, string lastName, decimal salary, Private[] solgers) 

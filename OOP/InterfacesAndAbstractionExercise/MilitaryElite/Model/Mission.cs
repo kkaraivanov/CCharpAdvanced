@@ -1,6 +1,7 @@
 ﻿namespace MilitaryElite.Model
 {
     using System;
+    using System.Linq;
     using Enumerator;
     using Interface;
 

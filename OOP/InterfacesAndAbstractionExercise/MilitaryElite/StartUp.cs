@@ -2,9 +2,6 @@
 {
     using System;
     using System.Linq;
-    using Enumerator;
-    using Interface;
-    using Model;
 
     public class StartUp
     {
@@ -18,10 +15,7 @@
                 engine.AddNewLine(input.Split().ToArray());
             }
 
-            foreach (var engineSolger in engine.Solgers)
-            {
-                Console.WriteLine(engineSolger);
-            }
+            Console.WriteLine(engine);
         }
     }
 }
