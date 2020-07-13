@@ -2,17 +2,21 @@
 {
     public class Bus : Vehicle
     {
-        protected override double AirConditioners => 1.4;
+        private const double airConditioners = 1.4;
+
+        protected override double AirConditioners { get; set; }
 
         protected override bool Hole => false;
 
         public Bus(double fuelQuantity, double fuelConsumption, double tankCapacity) 
             : base(fuelQuantity, fuelConsumption, tankCapacity)
         {
+            AirConditioners = airConditioners;
         }
 
         public string DriveEmpty(double distance)
         {
+            AirConditioners = 0;
             double expenceFuel = FuelConsumption * distance;
 
             if (expenceFuel > FuelQuantity)
@@ -22,6 +26,7 @@
 
             FuelQuantity -= expenceFuel;
             return $"{this.GetType().Name} travelled {distance} km";
+            AirConditioners = airConditioners;
         }
     }
 }
