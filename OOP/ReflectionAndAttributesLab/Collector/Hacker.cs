@@ -1,0 +1,29 @@
+﻿namespace Stealer
+{
+    public class Hacker
+    {
+        public string username = "securityGod82";
+        private string password = "mySuperSecretPassw0rd";
+        private double bankAccountBalance;
+
+        public string Password
+        {
+            get => password;
+            set => password = value;
+        }
+
+        private int Id { get; set; }
+
+        private double BankAccountBalance
+        {
+            get => bankAccountBalance;
+            set => bankAccountBalance = value;
+        }
+
+        public void DownloadAllBankAccountsInTheWorld()
+        {
+
+        }
+
+    }
+}
