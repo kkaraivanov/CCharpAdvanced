@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPrivateImpossible", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collector", "Collector\Collector.csproj", "{3A12DD8E-2F4C-4152-BE33-0A37717F4053}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateAttribute", "CreateAttribute\CreateAttribute.csproj", "{A3D59531-6F00-44A7-A60C-1023D3BA5D12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTracker", "CodeTracker\CodeTracker.csproj", "{1C9E9907-6D99-47C7-88ED-B5822EA0878E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{3A12DD8E-2F4C-4152-BE33-0A37717F4053}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A12DD8E-2F4C-4152-BE33-0A37717F4053}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A12DD8E-2F4C-4152-BE33-0A37717F4053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
