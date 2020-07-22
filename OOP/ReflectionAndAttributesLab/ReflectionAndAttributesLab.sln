@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30223.230
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stealer", "Stealer\Stealer.csproj", "{4C2A6F77-00AF-4235-BE96-CC5FEC19B0EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stealer", "Stealer\Stealer.csproj", "{4C2A6F77-00AF-4235-BE96-CC5FEC19B0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighQualityMistakes", "HighQualityMistakes\HighQualityMistakes.csproj", "{279BEEB9-24A2-4328-93CE-CE7BB5ADBCD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HighQualityMistakes", "HighQualityMistakes\HighQualityMistakes.csproj", "{279BEEB9-24A2-4328-93CE-CE7BB5ADBCD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPrivateImpossible", "MissionPrivateImpossible\MissionPrivateImpossible.csproj", "{7FA5AE6F-70BB-45AA-9903-0235CD22ADF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionPrivateImpossible", "MissionPrivateImpossible\MissionPrivateImpossible.csproj", "{7FA5AE6F-70BB-45AA-9903-0235CD22ADF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collector", "Collector\Collector.csproj", "{3A12DD8E-2F4C-4152-BE33-0A37717F4053}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collector", "Collector\Collector.csproj", "{3A12DD8E-2F4C-4152-BE33-0A37717F4053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreateAttribute", "CreateAttribute\CreateAttribute.csproj", "{A3D59531-6F00-44A7-A60C-1023D3BA5D12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateAttribute", "CreateAttribute\CreateAttribute.csproj", "{A3D59531-6F00-44A7-A60C-1023D3BA5D12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTracker", "CodeTracker\CodeTracker.csproj", "{1C9E9907-6D99-47C7-88ED-B5822EA0878E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorProblem", "CodeTracker\AuthorProblem.csproj", "{31951927-DF61-4834-8086-B131985C62B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3D59531-6F00-44A7-A60C-1023D3BA5D12}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C9E9907-6D99-47C7-88ED-B5822EA0878E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31951927-DF61-4834-8086-B131985C62B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31951927-DF61-4834-8086-B131985C62B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31951927-DF61-4834-8086-B131985C62B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31951927-DF61-4834-8086-B131985C62B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

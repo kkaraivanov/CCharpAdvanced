@@ -8,30 +8,20 @@
     {
         public void PrintMethodsByAuthor()
         {
-            //var type = Assembly.GetExecutingAssembly().GetTypes();
-            var methods = typeof(StartUp).GetMethods(
-                BindingFlags.Instance | BindingFlags.Public | BindingFlags.Static)
-                .Select(x => new
-                {
-                    typeName = x,
-                    typeAttributes = x.GetCustomAttributes<AuthorAttribute>()
-                })
-                .Where(x => x.typeAttributes.Any());
-            //var typeAttributes = type
-            //    .Select(x => new
-            //    {
-            //        typeName = x,
-            //        typeAttributes = x.GetCustomAttributes<AuthorAttribute>()
-            //    })
-            //    .Where(x => x.typeAttributes.Any());
+            Type typeClass = typeof(StartUp);
+            MethodInfo[] methodsInfo = typeClass.GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
 
-            foreach (var method in methods)
+            foreach (MethodInfo method in methodsInfo)
             {
-                var typeName = method.typeName.Name;
-                var attributes = method.typeAttributes.Select(x => x.Name);
-                var attributeName = string.Join(", ", attributes);
+                if (method.CustomAttributes.Any(x => x.AttributeType == typeof(AuthorAttribute)))
+                {
+                    var attributes = method.GetCustomAttributes(false);
 
-                Console.WriteLine($"{typeName} is written by {attributeName}");
+                    foreach (AuthorAttribute item in attributes)
+                    {
+                        Console.WriteLine($"{method.Name} is written by {item.Name}");
+                    }
+                }
             }
         }
     }
