@@ -1,11 +1,12 @@
 ﻿namespace CommandPattern
 {
-    using Core.Contracts;
-    using Core.Model;
+    using Core;
+    using Core.Commands;
+    using Core.Interfaces;
 
     public class StartUp
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             ICommandInterpreter command = new CommandInterpreter();
             IEngine engine = new Engine(command);
